@@ -1,0 +1,2790 @@
+[
+    {
+        "id": "RSRP-331876",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "VS is broken when inspection options are opened from the context action"
+            },
+            {
+                "name": "description",
+                "value": "{code}\t\tpublic void foo()\n\t\t{\n\t\t\tstring str{caret} = \"\";\n\t\t\tConsole.Out.WriteLine(str);\n\t\t}\n{code}\n\nPress Alt+Enter, expand 'Suppress inspection...' and select 'Inspection options...' - the dialog is opened and closed immediately. Now you cannot do anything in VS."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-331878",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Need to Press Esc to open 'Find similar issues' dialog"
+            },
+            {
+                "name": "description",
+                "value": "{code}          public void foo()\n                {\n                        string str{caret} = \"\";\n                        Console.Out.WriteLine(str);\n                }\n{code}\n\nPress Alt+Enter, expand 'Suppress inspection...' and select 'Find All...' - the dialog is not opened, \"do not enter\" sign appears near SQL menu (see attachment). Click Esc - Find similar issues dialog is opened."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336032",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Context actions don't work during large SWEA recalculation process"
+            },
+            {
+                "name": "description",
+                "value": "Perform some significant refactoring (like change signature on some public method) - SWEA will reanalyze files for a while. During that time context actions aren't available."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336133",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "No context for the newly created vb class in asp.net web site until reopened"
+            },
+            {
+                "name": "description",
+                "value": "8.0-only bug, for 7.1 all works fine\n\nWith solution from attachment:\n1) open solution\n2) use VS's \"add new item\", select class, apply and confirm creation of App_Code and placing new file into it\n\nText editor control opens, you see a blink of highlighter progress, and then nothing of R# is available in this control until you close it and reopen from solution explorer.\n\nnn1.png - before the file is reopened\nnn2.png - after the file is reopened\n\nAlso may be reproduced using integration test AddNewProjectItemWebSiteVB.AddNewClassWebSiteVBTest."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336443",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "New nuget related exception. The component instance does not have a value"
+            },
+            {
+                "name": "description",
+                "value": "http://buildserver.labs.intellij.net/viewLog.html?buildId=1660681&tab=buildResultsDiv&buildTypeId=bt1147\nbrakes all VS10 integration tests\n\n--- EXCEPTION #1/2 [NullReferenceException]\nMessage = “The component instance does not have a value.”\nExceptionPath = Root.InnerException\nClassName = System.NullReferenceException\nHResult = COR_E_NULLREFERENCE=E_POINTER=80004003\nSource = JetBrains.Platform.ReSharper.ComponentModel\nStackTraceString = “\n     at JetBrains.Application.Components.DeferredComponentDescriptor.JetBrains.Application.Components.IObjectDescriptor.get_Instance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\ObjectComponentDescriptor.cs:line 117\n     at JetBrains.Application.Components.ComponentContainer.LazyDescriptor`1.<>c__DisplayClass21.<.ctor>b__1f() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\ComponentContainer.Resolve.cs:line 210\n     at JetBrains.Util.Lazy.Lazy.JetLazy`1.get_Value() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\System\\Lazy.cs:line 55\n     at JetBrains.VsIntegration.DevTen.NuGet.NuGetReferenceManager..ctor(Lifetime lifetime, Lazy`1 vsPackageInstalerEvents, Lazy`1 vsPackageInstallerServices) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\v10.v11\\Src\\NuGet\\NuGetReferenceManager.cs:line 30\n”\n\n--- Outer ---\n\n--- EXCEPTION #2/2 [LoggerException]\nMessage = “The component instance does not have a value.”\nExceptionPath = Root\nClassName = JetBrains.Util.LoggerException\nInnerException = “Exception #1 at Root.InnerException”\nHResult = COR_E_APPLICATION=80131600\nStackTraceString = “\n     at JetBrains.VsIntegration.DevTen.NuGet.NuGetReferenceManager..ctor(Lifetime lifetime, Lazy`1 vsPackageInstalerEvents, Lazy`1 vsPackageInstallerServices) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\v10.v11\\Src\\NuGet\\NuGetReferenceManager.cs:line 39\n     at System.RuntimeMethodHandle._InvokeConstructor(IRuntimeMethodInfo method, Object[] args, SignatureStruct& signature, RuntimeType declaringType)\n     at System.RuntimeMethodHandle.InvokeConstructor(IRuntimeMethodInfo method, Object[] args, SignatureStruct signature, RuntimeType declaringType)\n     at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstanceImpl() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 205\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 229\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstanceChecked(OnError onError) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 242\n     at JetBrains.Application.Components.TypeComponentDescriptor.get_Instance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 44\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstanceImpl() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 187\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 229\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstanceChecked(OnError onError) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 242\n     at JetBrains.Application.Components.TypeComponentDescriptor.get_Instance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 44\n     at JetBrains.Application.EnumerableComponentDescriptor`1.<GetEnumerator>d__0.MoveNext() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\Implementation\\EnumerableComponentDescriptor.cs:line 53\n     at JetBrains.Application.EnumerableComponentDescriptor`1.get_Instance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\Implementation\\EnumerableComponentDescriptor.cs:line 38\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstanceImpl() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 187\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 229\n     at JetBrains.Application.Components.TypeComponentDescriptor.CreateInstanceChecked(OnError onError) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 242\n     at JetBrains.Application.Components.TypeComponentDescriptor.get_Instance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\TypeComponentDescriptor.cs:line 44\n     at JetBrains.Application.Components.ComponentContainer.ResolveDescriptors(Lifetime lifetime, IEnumerable`1 descriptors, OneToListMap`2 interfaceMap) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\ComponentContainer.Registration.cs:line 119\n     at JetBrains.Application.Components.ComponentContainer.Compose() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\ComponentModel\\src\\Components\\ComponentContainer.cs:line 146\n     at JetBrains.ProjectModel.SolutionInstance.OpenSolutionInstance() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Projects\\src\\impl\\SolutionInstance.cs:line 48\n     at JetBrains.ProjectModel.SolutionManagerBase.CreateSolutionInstance(SolutionElement solutionElement, SolutionInstance solutionInstance) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Projects\\src\\impl\\SolutionManagerBase.cs:line 116\n     at JetBrains.VsIntegration.ProjectModel.VSSolutionManager.<>c__DisplayClass18.<OpenVSSolution>b__15(Lifetime lifetime) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\Core\\src\\ProjectModel\\VSSolutionManager.cs:line 260\n     at JetBrains.DataFlow.SequentialLifetimes.<>c__DisplayClass3.<Next>b__2(LifetimeDefinition definition, Lifetime lifetime) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\DataFlow\\SequentialLifetimes.cs:line 39\n     at JetBrains.DataFlow.Lifetimes.Define(Lifetime lifetime, String id, Action`2 FAtomic, ILogger logger) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\DataFlow\\Lifetime\\Lifetimes.cs:line 116\n     at JetBrains.DataFlow.SequentialLifetimes.DefineNext(Action`2 FNext) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\DataFlow\\SequentialLifetimes.cs:line 55\n     at JetBrains.DataFlow.SequentialLifetimes.Next(Action`1 FNext) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\DataFlow\\SequentialLifetimes.cs:line 40\n     at JetBrains.VsIntegration.ProjectModel.VSSolutionManager.OpenVSSolution(Boolean openSolution, Boolean sync) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\Core\\src\\ProjectModel\\VSSolutionManager.cs:line 247\n     at JetBrains.VsIntegration.ProjectModel.VSSolutionManager.<OnAfterOpenSolution>b__13() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\Core\\src\\ProjectModel\\VSSolutionManager.cs:line 227\n     at JetBrains.Util.Logger.Catch(Action action) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Logger\\Logger.cs:line 243\n     at JetBrains.Util.Concurrency.UnguardedCallbackMerger.ExecuteOrQueueOrMerge(Lifetime lifetimeQueue, String name, Action F) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Concurrency\\UnguardedCallbackMerger.cs:line 125\n     at JetBrains.VsIntegration.ProjectModel.VSSolutionManager.<OnAfterOpenSolution>b__12() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\Core\\src\\ProjectModel\\VSSolutionManager.cs:line 225\n     at Action(OnAfterOpenSolution).Execute(Action )\n     at JetBrains.Threading.JetDispatcher.Closure.Execute() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Concurrency\\JetDispatcher.cs:line 827\n     at JetBrains.Threading.JetDispatcher.ProcessQueue() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Concurrency\\JetDispatcher.cs:line 694\n     at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n     at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n     at System.Windows.Threading.DispatcherOperation.InvokeImpl()\n     at System.Windows.Threading.DispatcherOperation.InvokeInSecurityContext(Object state)\n     at System.Threading.ExecutionContext.runTryCode(Object userData)\n     at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)\n     at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\n     at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)\n     at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\n     at System.Windows.Threading.DispatcherOperation.Invoke()\n     at System.Windows.Threading.Dispatcher.ProcessQueue()\n     at System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n     at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n     at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)\n     at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n     at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n     at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)\n     at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)\n     at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)\n     at System.Windows.Forms.Application.ThreadContext.LocalModalMessageLoop(Form form)\n     at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\n     at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\n     at System.Windows.Forms.Application.RunDialog(Form form)\n     at System.Windows.Forms.Form.ShowDialog(IWin32Window owner)\n     at Microsoft.VisualStudio.UIService.System.Windows.Forms.Design.IUIService.ShowDialog(Form form)\n     at Microsoft.VSWizards.WizardForm.ShowDialog()\n     at Microsoft.VSDesigner.Project.UpgradeWizard.UpgradeWizard_Dialog.ShowWizard()\n     at Microsoft.VSDesigner.Project.UpgradeWizard.UpgradeWizard.Execute(Object Application, Int32 hwndOwner, Object[]& ContextParams, Object[]& CustomParams, wizardResult& wr)\n     at Microsoft.VisualStudio.Shell.Interop.IVsSolution.OpenSolutionFile(UInt32 grfOpenOpts, String pszFilename)\n     at JetBrains.VsIntegration.ProjectModel.VSSolutionManager.<>c__DisplayClass1.<StartOpenExistingSolution>b__0() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\Core\\src\\ProjectModel\\VSSolutionManager.cs:line 68\n     at JetBrains.Util.Concurrency.UnguardedCallbackMerger.ExpectUnguardedCallback(Action FNested) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Concurrency\\UnguardedCallbackMerger.cs:line 161\n     at JetBrains.VsIntegration.ProjectModel.VSSolutionManager.StartOpenExistingSolution(FileSystemPath solutionFilePath, Action callback) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\VisualStudio\\Core\\src\\ProjectModel\\VSSolutionManager.cs:line 68\n     at JetBrains.ReSharper.VSIntegrationTests.TestFixtures.TestIntegrationWithSolutionBase.<>c__DisplayClass9.<SetUp>b__5()\n     at Action(SetUp).Execute(Action )\n     at JetBrains.Threading.ReentrancyGuard.Execute(String name, Action action) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Concurrency\\ReentrancyGuard.cs:line 264\n     at JetBrains.ReSharper.VSIntegrationTests.TestFixtures.TestIntegrationWithSolutionBase.<SetUp>b__4()\n     at JetBrains.IntegrationTestsFramework.Client.TestFixtures.TestIntegrationBase.Run(Action action)\n     at JetBrains.ReSharper.VSIntegrationTests.TestFixtures.TestIntegrationWithSolutionBase.SetUp()\n     at JetBrains.ReSharper.VSIntegrationTests.ActiveXReferencesTest.SetUp()\n     at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)\n     at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)\n     at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)\n     at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\n     at JetBrains.IntegrationTestsServerPlugin.IntegrationTestsServer.JetBrains.IntegrationTestsFramework.Server.IIntegrationTestsServer.RunTest(String sTestName, String sAssemblyName, String sTypeFullName, String sMethodName)\n     at SyncInvokeRunTest(Object , Object[] , Object[] )\n     at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)\n     at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc& rpc)\n     at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc& rpc)\n     at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)\n     at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)\n     at System.ServiceModel.Dispatcher.MessageRpc.Wrapper.Resume(Boolean& alreadyResumedNoLock)\n     at System.ServiceModel.Dispatcher.ThreadBehavior.ResumeProcessing(IResumeMessageRpc resume)\n     at System.ServiceModel.Dispatcher.ThreadBehavior.SynchronizationContextStartCallback(Object state)\n     at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n     at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n     at System.Windows.Threading.DispatcherOperation.InvokeImpl()\n     at System.Windows.Threading.DispatcherOperation.InvokeInSecurityContext(Object state)\n     at System.Threading.ExecutionContext.runTryCode(Object userData)\n     at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)\n     at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\n     at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)\n     at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\n     at System.Windows.Threading.DispatcherOperation.Invoke()\n     at System.Windows.Threading.Dispatcher.ProcessQueue()\n     at System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n     at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n     at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)\n     at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n     at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n     at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)\n     at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)\n  \n”"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336484",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Each error is duplicated 2 times"
+            },
+            {
+                "name": "description",
+                "value": "check the attachment (VS11)"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Can't Reproduce"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336605",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Refactoring.Move in the SolutionExplorer. ProjectStructure is not shown"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336928",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Applied \"move to another file\" refactoring, got daemon in state \"Analysis will start shortly\" forever until text control is reopened"
+            },
+            {
+                "name": "description",
+                "value": "In Class19.cs, apply \"move to another file\" refactoring to \"class @class\".\n\nAfter that, text control is opened, and daemon is in state \"Analysis will start shortly\" forever.\nOnly if I switch to another text control, or close-reopen, it continues.\nIt I undo the change, daemon is again in that state forever.\n\nThere also exists corresponding integration tests failure."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336973",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Bad formatting of XML comments in default"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n/// <summary>\n/// Synthesizes a keystroke. The system can use such a synthesized keystroke to generate a <see cref=\"WindowsMessages.WM_KEYUP\"/> or <see cref=\"WindowsMessages.WM_KEYDOWN\"/> message. The keyboard driver's interrupt handler calls the keybd_event function.\n/// </summary>\n{code}\n\nis formatted to\n{code}\n/// <summary>\n/// Synthesizes a keystroke. The system can use such a synthesized keystroke to generate a\n/// <see\n/// cref=\"WindowsMessages.WM_KEYUP\" />\n/// or\n/// <see\n/// cref=\"WindowsMessages.WM_KEYDOWN\" />\n/// message. The keyboard driver's interrupt handler calls the keybd_event function.\n/// </summary>\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337178",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Regression for RSRP-228400 Excluding files from project doesn't remove their tests from the system"
+            },
+            {
+                "name": "description",
+                "value": "Again, tests are not removed if file is excluded from solution. On next run, they are red-overlined.\n\nAlso, the user cannot even close the session or delete the tests - this elements are disabled for such red-overlined tests."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337260",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Move type to another namespace\" namespace suggestion popup is blank in 8.0"
+            },
+            {
+                "name": "description",
+                "value": "In 7.1, this list showed available namespaces.\nIn 8.0, this list is blank."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337339",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "xaml completion is broken in vs10"
+            },
+            {
+                "name": "description",
+                "value": "subj"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Verified"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337409",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "ValidateAssemblyReferencesResolved is red"
+            },
+            {
+                "name": "description",
+                "value": "ReSharper solution -> ValidateAssemblyReferencesResolved -> red code there"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337478",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Node states are not always synchronized on test finish"
+            },
+            {
+                "name": "description",
+                "value": "Even if test run has finished, top-level nodes may be left forever in \"Running\" state.\n\nProject is attached."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337479",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Test run for WinRT tests is not synchronized with app deployment"
+            },
+            {
+                "name": "description",
+                "value": "Run unit tests several times, see that VS error list is filled with one more message each time.\n\nTo reproduce the exception, first launch debug via VS's test runner, and then run tests from R#."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337480",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "If I got exception during debug using R#'s runner and Continue, I'm suddenly directed to some metro-window clicking through which I got to metro-desktop"
+            },
+            {
+                "name": "description",
+                "value": "No such issue with VS's runner, only with R#'s.\n\n1) start debug\n2) VS will break on exception\n3) continue debug\n\nYou'll be surprised to see a violet blank window of some metro-app.\nIf you click over it, you'll see the metro-desktop.\n\nWhen using VS's runner, executing Continue simply brings me back to VS.\n"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337497",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "If I run mstest category for tests located in different assemblies, tests from second assembly are marked as inconclusive"
+            },
+            {
+                "name": "description",
+                "value": "Subj."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337513",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "False \"Assembly name expected instead of project name\""
+            },
+            {
+                "name": "description",
+                "value": "Project:\nhttp://youtrack.jetbrains.com/_persistent/WinRTAssemblyPathReference.7z?file=74-104884&v=0&c=true\n\nIssue appeared after your merge, so."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Can't Reproduce"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337514",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Executor process exited\" while running msfakes test"
+            },
+            {
+                "name": "description",
+                "value": "Subj."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338053",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Bogus 'The type arguments for method cannot be inferred from usage. Try specifying the type arguments explicitly.'"
+            },
+            {
+                "name": "description",
+                "value": "{code}using System;\nusing System.Collections.Generic;\n\nnamespace ConsoleApplication1\n{\n  public class Program\n  {\n    private static void Write<T>(IReadOnlyCollection<T> arguments)\n    {\n      foreach (var argument in arguments)\n      {\n        Console.Out.WriteLine(\"{0}\", argument.ToString());\n      }\n    }\n\n    private static void Main(string[] args)\n    {\n      Write(args); // here\n    }\n  }\n}{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338075",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Remove unused references\" removes references which are used by generated files from Silverlight projects, leading to uncompilable code"
+            },
+            {
+                "name": "description",
+                "value": "Create Silverlight cs or vb project, invoke \"refactor this\" -> \"remove unused references\" on solution.\nTry to compile project => fail.\n\np.s.: I did not find such issue in youtrack, but if this is known old-school issue, plz lower the priority."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338113",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Multipublic in vb.net autopopup"
+            },
+            {
+                "name": "description",
+                "value": "subj\n\nJust create new vb.net project and type \"Pu\" inside class. You'll see 2 \"public\"'s in autopopup list. If you erase \"u\", type \"u\" again, and repeat this N times, you'll get N more \"public\"'s in list."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338166",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "QuickFixes and bracket matching stop working after being invoked first time for a while"
+            },
+            {
+                "name": "description",
+                "value": "Apply any QuickFix in text control.\n\nAfter that and until some time elapsed or until typing in text control, QuickFixes and brackets highlighting are unavailable at all."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338487",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Test run termination does not always terminate satellite runner process - it may continue to run tests"
+            },
+            {
+                "name": "description",
+                "value": "Add several integration tests from different namespaces to test session, and do \"run all\".\nWait for several tests to pass, then terminate session.\n\nThere is a chance that satellite process still will be running, and test execution won't stop at all.\n\nReproduced it twice locally, after it was first noticed by Coox."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338566",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "vb basic completion shows different completions before and after Esc, and the second of them misbehaves"
+            },
+            {
+                "name": "description",
+                "value": "The easiest repro invokes auto-completion first, basic second.\n\n1) open DefaultVB.aspx.vb from attached project\n2) after line Dim i As Integer type at new line:\n{code}\nDim cont As M{caret}\n{code}\n\n(if you'll catch RSRP-338565, just kill VS and retry)\n\n3) wait for auto-completion, dissolve it using Esc\n4) invoke basic-completion, see that no items in it are pre-selected, and if you invoke some of its items, part of word that you typed is not erased, and the whole word is appended to it, which is wrong behavior\n\n\nThe harder case invoked two basic-completions.\nAfter invoking first basic completion, you have normal completion list.\nAfter pressing Esc and invoking completion second time, you have misbehaved completion list."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338651",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "css/aspx/javascript/html/xml second completion misbehaves as in RSRP-338566"
+            },
+            {
+                "name": "description",
+                "value": "Type \"col\" in CSS and try to complete.\n\nFirst completion: you get \"color: \" with Tab, Enter or Space.\nSecond completion: you get \"colcolor: \" with Tab, Enter or Space.\n\nMaybe double-completion should be switched off for them as it was for xaml?"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338700",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Bulbs inconsistent behavior"
+            },
+            {
+                "name": "description",
+                "value": "1) apply QF that removes error => bulb is still present ?!\n2) apply QF again => it fixes non-existing problem\n3) undo both fixes, and bulb now does not show error until user moves caret left-right"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338766",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Tests do not run correctly on freshly created mstest project: infinite run, strikethrough tests in sessions window"
+            },
+            {
+                "name": "description",
+                "value": "1) create new mstest project in VS11\n2) run test\n3) VS hangs for a while (alike RSRP-338481)\n4) then it is alive, but test execution runs infinitely, and test is displayed as strikethrough in sessions window\n5) after I stop run and close tab, I get RSRP-338763"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Reopened"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338850",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Advanced\" button in \"Generate event subscription\" for XAML silently closes the dialog"
+            },
+            {
+                "name": "description",
+                "value": "Set caret on Grid, invoke \"Generate\", select \"Event subscriptions\", in dialog check any of them and click \"Advanced\" button.\n\nDialog silently closes: no exception, no clear reason why it did so."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339074",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "CompletionAspCSharpVbCssJsTest permanently leads to VS hang"
+            },
+            {
+                "name": "description",
+                "value": "There is no concrete single test to reproduce issue, but if you run the whole fixture, at some moment VS will hang.\nI was not able to run the whole fixture without hangs.\n\nPlease take a look.\nSeems that it is still in brackets matching subsystem. If not, plz reassign to appropriate developer."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339079",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Javascript tests are broken in 8.0"
+            },
+            {
+                "name": "description",
+                "value": "Test are in never-ending pending state."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Show-stopper"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-330351",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "ReSharper 7.1 EAP shows \"No parameterless constructor defined for this object\" for Asp.NET MVC action parameters of collections defined as interfaces (IEnumerable`1, IDictionary`2, etc)"
+            },
+            {
+                "name": "description",
+                "value": "I have following action declaration:\n\n{code}\npublic ActionResult Years(IEnumerable<int> selected)\n{code}\n\nAnd R# shows that IEnumerable<int> is incorrect, because \"No parameterless constructor defined for this object\" but MVC is able to handle such action declarations wery vell.\n\nThis methods works\n\n* /List/Years?selected=1&selected=2\n* /List/Years?selected[0]=1&selected[1]=2\n* /List/Years?selected[100]=1&selected[500]=2&selected.index=100&selected.index=500 \n\nModel will be {code} new int[] {1, 2} {code}\n \nThe last two are also useful for complex model and for models of type IDictionary<,>:\n\n{code}\npublic ActionResult Years3(IDictionary<int, string> selected)\n{code}\n\n\n* /List/Years3?selected[0].key=1&selected[0].value=100&selected[1].key=2&selected[1].value=200\n* /List/Years3?selected[100].key=1&selected[100].value=100&selected[500].key=2&selected[500].value=200&selected.index=100&selected.index=500\n\nModel will be {code}Dictionary<int, string> { {1,100}, {2,200} }{code}\n"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-330353",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "ReSharper 7.1 EAP shows \"No parameterless constructor defined for this object\" for Asp.NET MVC action parameters that have model binder defined"
+            },
+            {
+                "name": "description",
+                "value": "I have two actions defined as following\n\n{code}\npublic ActionResult Persons1([ModelBinder(typeof(PersonModelBinder))]IPerson selected)\n{code}\n\nAnd \n\n{code}\npublic ActionResult Persons2([ModelBinder(typeof(PersonModelBinder))]Person selected)\n{code}\n\nAnd the Person class is defined as:\n\n{code}\npublic class Person : IPerson\n{\n    public Person(string firstName, string lastName)\n    {\n        FirstName = firstName;\n        LastName = lastName;\n    }\n\n    public string FirstName { get; set; }\n    public string LastName { get; set; }\n}\n\npublic interface IPerson\n{\n    string FirstName { get; set; }\n    string LastName { get; set; }\n}\n{code}\n\nR# should respect [ModelBinder] attribute!"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-335916",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "GotoEvr search results after writing and deleting several symbols are completely different"
+            },
+            {
+                "name": "description",
+                "value": "repro\n1. open solution in vs11\n2. call gototevr\n3. write Prog - see lots of results from framework\n4. write Program - see my class Program and some results from the framework\n4. delete \"ram\" to Prog - see only my class program\nexpected - same results as in (3)."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336056",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Go to next error works only in the scope of the current file when SWEA is paused"
+            },
+            {
+                "name": "description",
+                "value": "Turn on SWEA -> collect some errors in different files -> pause analysis -> \n\ntry to navigate through the error list - you will be able to do that just in the scope of file"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Won't fix"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336149",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "False ambiguous reference."
+            },
+            {
+                "name": "description",
+                "value": "related integration tests MvvmRiaServicesTest"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336450",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Exception “Open test solution FAIL.”"
+            },
+            {
+                "name": "description",
+                "value": "one after another run of  OptionsWoSolutionTest and OutlookAddInTest lead to the exception and hangup VS"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336844",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Completion breaks subsequent attribute"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n  [TestFixture]\n  public class GeneralOptionsTests : WebAppTestBase\n  {\n\n    [TearDown] \n    public override te\n\n    [Test]\n    public void TestIconThemeChange()\n    {\n{code}\n\nOn \"te\", apply code completion.\n\nResult:\n{code}\n  [TestFixture]\n  public class GeneralOptionsTests : WebAppTestBase\n  {\n    public override void TearDown()\n    {\n      base.TearDown();\n    }\n\n  ]\n    public void TestIconThemeChange()\n    {\n{code}\n\nThe only thing that left after subsequent [Test] attribute is \"]\", and code is red, of course."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337229",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "R# inserts usings before preprocessor define-s, producing uncompilable code"
+            },
+            {
+                "name": "description",
+                "value": "First file:\n\n{code}\n#define A\n\nnamespace ClassLibrary160\n{\n    public class Class1\n    {\n      public static void Main(string[] args)\n      {\n        Class2 cl = new Class2();\n      }\n    }\n}\n{code}\n\nSecond file:\n\n{code}\nnamespace ClassLibrary161\n{\n  class Class2\n  {\n  }\n}\n{code}\n\nApply quickfix \"Import type 'ClassLibrary161.Class2'\".\n\nTry to compile project. It will fail with:\n{code}\nError\t1\tCannot define/undefine preprocessor symbols after first token in file\tc:\\Users\\Anton.Lobov\\Documents\\Visual Studio 2012\\Projects\\ClassLibrary160\\ClassLibrary160\\Class1.cs\t3\t2\tClassLibrary160\n{code}\n\nbecause of this:\n{code}\nusing ClassLibrary161;\n\n#define A\n{code}\n\nwhich is an illegal statement generated by R#. Define directives should go before any other statements."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337342",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "R#'s test runner is unable to run test with app.config in vs10"
+            },
+            {
+                "name": "description",
+                "value": "subj"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337401",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Disallow the debug of javascript unit tests from any place"
+            },
+            {
+                "name": "description",
+                "value": "Now it is possible to launch js-tests debug from solution explorer.\n\nThis leads to exception in test runner."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337404",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Jasmine asynchronous tests are inconclusive every second-third run when they are run in browser, and sometimes are hung when run in phantomjs"
+            },
+            {
+                "name": "description",
+                "value": "http://pivotal.github.com/jasmine/#section-Asynchronous_Support\n\nFor some runs:\n{code}\n<JSTestWeb> (1 test), Success\n  Asynchronous specs (1 test), Success\n    should support async execution of test preparation and exepectations, Success\n{code}\n\nFor some runs:\n{code}\n<JSTestWeb> (1 test), \n  Asynchronous specs (1 test), \n    should support async execution of test preparation and exepectations, Inconclusive: Test wasn't run\n{code}\n\nPlease check what could be wrong with this.\n\nAs for run with phantomjs, sometimes this leads to forever-running tests, and phantomjs left running even after I stop the tests run."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337407",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "QUnit run is always inconclusive if QUnit.done is specified"
+            },
+            {
+                "name": "description",
+                "value": "1) Try this:\n\n{code}\nQUnit.done(function (details) {\n    console.log(\"Total: \", details.total, \" Failed: \", details.failed, \" Passed: \", details.passed, \" Runtime: \", details.runtime);\n});\n\nQUnit.begin(function (details) {\n    console.log(\"Begin\");\n});\n\nQUnit.log(function (details) {\n    console.log(\"Log: \", details.result, details.message);\n});\n\nQUnit.moduleDone(function (details) {\n    console.log(\"Finished running: \", details.name, \"Failed/total: \", details.failed, details.total);\n});\n\nQUnit.moduleStart(function (details) {\n    console.log(\"Now running: \", details.module);\n});\n\nQUnit.testStart(function (details) {\n    console.log(\"Now running: \", details.module, details.name);\n});\n\nQUnit.testDone(function (details) {\n    console.log(\"Finished running: \", details.module, details.name, \"Failed/total: \", details.failed, details.total, details.duration);\n});\n\ntest(\"test\", function () {    \n});\n{code}\n\nTest result will be \"inconclusive\".\n\n2) Comment out QUnit.done. Afterwards, test passes."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337460",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Evaluation ended\" license dialog is shown in endless loop if at least one day passed since it has appeared and product has expired"
+            },
+            {
+                "name": "description",
+                "value": "I left R# evaluation that had to expire on Friday or Saturday (don't remember exactly) running in VM.\n\nWhen I returned today (next week Monday since dialog has appeared), I saw license dialog depicted on screenshot.\n\nIt is shown in endless loop when I am clicking OK.\n\nAlso, it always shows that \"1 day left\", but \"evaluation period has expired\".\n\nSeems that some counters are not synchronized within this dialog, and part of it thinks it's still Friday, but the other part knows that today is next week Monday, so it rejects the attempt to continue evaluation."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337524",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Failed to evaluate the data rule. Trying to get context from odd project"
+            },
+            {
+                "name": "description",
+                "value": "Test(s) failed. System.InvalidOperationException : TestWrapperException: 2 exceptions were thrown.\n#1: Failed to evaluate the data rule. Trying to get context from odd project\n\n--- EXCEPTION #1/3 [AssertionException]\nMessage = “Trying to get context from odd project”\nExceptionPath = Root.InnerException.InnerException\nClassName = JetBrains.Util.Assertion+AssertionException\nHResult = COR_E_EXCEPTION=80131500\nSource = JetBrains.Platform.ReSharper.ProjectModel\nStackTraceString = “\n     at JetBrains.ProjectModel.Assemblies.Impl.ResolveContextManager.GetProjectResolveContext(IProject referencesOwner) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Projects\\src\\model2\\Assemblies\\Impl\\ResolveContextManager.cs:line 26\n     at JetBrains.ProjectModel.ProjectExtensions.GetResolveContext(IProject project) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Projects\\src\\model2\\Interfaces\\ProjectExtensions.cs:line 76\n     at JetBrains.ReSharper.Psi.Impl.PsiProjectFile.get_ResolveContext() in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Psi\\_Core\\src\\impl\\PsiProjectFile.cs:line 128\n     at JetBrains.ReSharper.Feature.Services.Xml.DataConstants.XmlDataRules.GetDeclaredElements(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\Xml\\src\\DataConstants\\XmlDataRules.cs:line 90\n     at JetBrains.Application.DataContext.DataRule`1.JetBrains.Application.DataContext.IDataRule.Evaluate(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\IDataProvider.cs:line 158\n     at JetBrains.Application.DataContext.DataContext.Evaluator.TryEvaluateDataRules(IDataConstant constant, IDataContext dataContext) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 386\n”\n\n--- Outer ---\n\n--- EXCEPTION #2/3 [InvalidOperationException]\nMessage = “Failed to evaluate the data rule.”\nExceptionPath = Root.InnerException\nClassName = System.InvalidOperationException\nData.DataConstant = DeclaredElements\nData.DataConstantType = “System.Collections.Generic.ICollection`1[[JetBrains.ReSharper.Psi.IDeclaredElement, JetBrains.ReSharper.Psi, Version=8.0.0.14797, Culture=neutral, PublicKeyToken=1010a0d8d6380325]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”\nData.DataRuleObject = JetBrains.Application.DataContext.DataRule`1[System.Collections.Generic.ICollection`1[JetBrains.ReSharper.Psi.IDeclaredElement]]\nData.DataRulePriority = 0\nInnerException = “Exception #1 at Root.InnerException.InnerException”\nHResult = COR_E_INVALIDOPERATION=80131509\n\n--- Outer ---\n\n--- EXCEPTION #3/3 [LoggerException]\nMessage = “Failed to evaluate the data rule.”\nExceptionPath = Root\nClassName = JetBrains.Util.LoggerException\nInnerException = “Exception #2 at Root.InnerException”\nHResult = COR_E_APPLICATION=80131600\nStackTraceString = “\n     at JetBrains.Application.DataContext.DataContext.Evaluator.TryEvaluateDataRules(IDataConstant constant, IDataContext dataContext) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 404\n     at JetBrains.Application.DataContext.DataContext.DoGetData(IDataConstant constant) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 123\n     at JetBrains.Application.DataContext.DataContext.JetBrains.Application.DataContext.IDataContext.GetData[T](DataConstant`1 dataConstant) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 255\n     at JetBrains.ReSharper.Psi.Services.PsiDataRules.DeclaredElementSingleOrNull(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Psi\\Services\\_Core\\src\\PsiDataRules.cs:line 64\n     at JetBrains.Application.DataContext.DataRule`1.JetBrains.Application.DataContext.IDataRule.Evaluate(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\IDataProvider.cs:line 158\n     at JetBrains.Application.DataContext.DataContext.Evaluator.TryEvaluateDataRules(IDataConstant constant, IDataContext dataContext) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 386\n     at JetBrains.Application.DataContext.DataContext.DoGetData(IDataConstant constant) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 123\n     at JetBrains.Application.DataContext.DataContext.JetBrains.Application.DataContext.IDataContext.GetData[T](DataConstant`1 dataConstant) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\DataContext\\DataContext.cs:line 255\n     at JetBrains.ReSharper.I18n.Services.Refactoring.Helper.GetResourceElement(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\I18n\\_Core\\src\\Refactoring\\Helper.cs:line 77\n     at JetBrains.ReSharper.I18n.Services.Refactoring.CommonResourceRenameAction.IsAvailable(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\I18n\\_Core\\src\\Refactoring\\Rename\\CommonResourceRenameAction.cs:line 34\n     at JetBrains.ReSharper.I18n.Services.Refactoring.ResourceRenameAction.<>c__DisplayClass1.<GetAction>b__0(IResourceRenameAction action) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\I18n\\_Core\\src\\Refactoring\\Rename\\RenameResourceRefactoring.cs:line 58\n     at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)\n     at JetBrains.ReSharper.I18n.Services.Refactoring.ResourceRenameAction.GetAction(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\I18n\\_Core\\src\\Refactoring\\Rename\\RenameResourceRefactoring.cs:line 58\n     at JetBrains.ReSharper.I18n.Services.Refactoring.RenameResourceDrivenWorkflow.IsAvailable(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\I18n\\_Core\\src\\Refactoring\\Rename\\RenameResourceDrivenWorkflow.cs:line 70\n     at JetBrains.ReSharper.I18n.Services.Refactoring.RenameResourceWorkflowProvider.HideOtherActions(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\I18n\\_Core\\src\\Refactoring\\Rename\\RenameResourceWorkflowProvider.cs:line 21\n     at JetBrains.ReSharper.Feature.Services.ActionsMenu.ExtensibleAction`3.<>c__DisplayClass4.<GetWorkflowListToExecute>b__0(IOverridingWorkflowProvider x) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\Navigation\\src\\ActionsMenu\\ExtensibleAction.cs:line 96\n     at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()\n     at System.Linq.Enumerable.<CastIterator>d__b1`1.MoveNext()\n     at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)\n     at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)\n     at JetBrains.ReSharper.Feature.Services.ActionsMenu.ExtensibleAction`3.GetWorkflowListToExecute(IDataContext dataContext) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\Navigation\\src\\ActionsMenu\\ExtensibleAction.cs:line 94\n     at JetBrains.ReSharper.Feature.Services.ActionsMenu.ExtensibleAction`3.Update(IDataContext context, ActionPresentation presentation, DelegateUpdate nextUpdate) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Psi.Features\\src\\Services\\Navigation\\src\\ActionsMenu\\ExtensibleAction.cs:line 48\n     at JetBrains.ActionManagement.UpdatableAction.Update(IDataContext context) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\UI\\src\\ActionSystem\\Action\\UpdatableAction.cs:line 84\n     at JetBrains.ActionManagement.ActionManager.<>c__DisplayClass6.<ExecuteActionIfAvailable>b__5(Lifetime lifetime) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\UI\\src\\ActionSystem\\ActionManager\\ActionManager.cs:line 162\n     at JetBrains.DataFlow.Lifetimes.Using[TRetVal](Func`2 F) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\DataFlow\\Lifetime\\Lifetimes.cs:line 42\n     at JetBrains.ActionManagement.ActionManager.ExecuteActionIfAvailable(IExecutableAction action, IDataContext dataContextOverride) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\UI\\src\\ActionSystem\\ActionManager\\ActionManager.cs:line 158\n     at JetBrains.ActionManagement.ActionManagerEx.ExecuteActionIfAvailable(IActionManager actionman, String actionId) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\UI\\SrcNonView\\Actions\\ActionManager\\ActionManagerEx.cs:line 42\n     at JetBrains.IntegrationTestsFramework.Client.TestHelpers.ActionHelper.<>c__DisplayClass4.<GuardedExecuteAction>b__3()\n     at JetBrains.Application.IShellLocksEx.ExecuteWithReadLock(IShellLocks thіs, Action F) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Shell\\src\\Threading\\ShellLocks.cs:line 990\n     at JetBrains.IntegrationTestsFramework.Client.TestHelpers.ReadLockCookieHelper.Execute(Action action)\n     at JetBrains.IntegrationTestsFramework.Client.TestHelpers.ReadLockCookieHelper.<>c__DisplayClass1.<GuardedExecute>b__0()\n     at Action(GuardedExecute).Execute(Action )\n     at JetBrains.Threading.ReentrancyGuard.Execute(String name, Action action) in c:\\BuildAgent\\work\\1d5606e7e667bf54\\Platform\\src\\Util\\src\\Concurrency\\ReentrancyGuard.cs:line 265\n     at JetBrains.IntegrationTestsFramework.Client.TestHelpers.ReadLockCookieHelper.GuardedExecute(Action action)\n     at JetBrains.IntegrationTestsFramework.Client.TestHelpers.ActionHelper.GuardedExecuteAction(String actionName)\n     at JetBrains.ReSharper.VSIntegrationTests.Refactor.RefactoringHelper.Rename(String newName)\n     at JetBrains.ReSharper.VSIntegrationTests.BuildScripts.NAntSmokeTest.<TestNAntPropertyRefactorRename>b__a()\n     at JetBrains.IntegrationTestsFramework.Client.TestFixtures.TestIntegrationBase.Run(Action action)\n     at JetBrains.ReSharper.VSIntegrationTests.BuildScripts.NAntSmokeTest.TestNAntPropertyRefactorRename()\n     at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)\n     at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)\n     at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\n     at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)\n     at JetBrains.IntegrationTestsServerPlugin.IntegrationTestsServer.JetBrains.IntegrationTestsFramework.Server.IIntegrationTestsServer.RunTest(String sTestName, String sAssemblyName, String sTypeFullName, String sMethodName)\n     at SyncInvokeRunTest(Object , Object[] , Object[] )\n     at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)\n     at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc& rpc)\n     at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc& rpc)\n     at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)\n     at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)\n     at System.ServiceModel.Dispatcher.MessageRpc.Wrapper.Resume(Boolean& alreadyResumedNoLock)\n     at System.ServiceModel.Dispatcher.ThreadBehavior.ResumeProcessing(IResumeMessageRpc resume)\n     at System.ServiceModel.Dispatcher.ThreadBehavior.SynchronizationContextStartCallback(Object state)\n     at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n     at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n     at System.Windows.Threading.DispatcherOperation.InvokeImpl()\n     at System.Windows.Threading.DispatcherOperation.InvokeInSecurityContext(Object state)\n     at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)\n     at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)\n     at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\n     at System.Windows.Threading.DispatcherOperation.Invoke()\n     at System.Windows.Threading.Dispatcher.ProcessQueue()\n     at System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n     at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n     at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)\n     at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n     at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n     at System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)\n     at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)\n  \n”"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337683",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Duplicate items in xaml basic completion"
+            },
+            {
+                "name": "description",
+                "value": "Very strange thing, and I was happy to see this only once, after invoking different kinds of completion one by one when trying to reproduce RSRP-337339.\n\nSolution is the same:\nhttp://youtrack.jetbrains.com/_persistent/WpfApp.7z?file=74-105321&v=0&c=true"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337758",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "UnitTesting should clean-up test runner processes on abort"
+            },
+            {
+                "name": "description",
+                "value": "Experimenting with too long running tests, I simply used while-true:\n{code}\n    [TestClass]\n    public class UnitTest1\n    {\n        [TestMethod]\n        public void TestMethod11()\n        {\n            while (true) {};\n        }\n\n\n        [TestMethod]\n        public void TestMethod12()\n        {\n        }\n    }\n{code}\n\nIf you run this via R#'s runner, and then abort test, you'll get a couple of VS runner processes left (qtagent32, vstest.discoveryengine, vstest.executionengine).\n\nR# should either use some API to handle this, or kill whole process tree which it started while running tests, or do something else, but not leave this processes running."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337817",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Strait\" completion does not work in 8.0: if only one item is available in completion, it is not inserted automatically"
+            },
+            {
+                "name": "description",
+                "value": "In 7.1, if there is only one completion item, it was inserted automatically when user invokes completion command.\n\nIn 8.0, if there is only one completion item, lookup window is shown with only one item.\n\nIt this is a planned change of behavior, plz comment and re-assign to me to fix corresponding tests."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337892",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Check if smth not null\" quickfix wraps improper area into braces"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n      if (filetype != null)\n      {\n        var flType = window.Search(TreeScope.Descendants).WhereAutomationIdIs(\"1136\").Where(AutomationElement.ClassNameProperty, \"ComboBox\").FirstOrDefault();\n        flType.Pattern<ExpandCollapsePattern>().Expand();        \n\n        var xmlItem = flType.Search(TreeScope.Descendants).Where(AutomationElement.NameProperty, filetype).FirstOrDefault();\n        xmlItem.Pattern<SelectionItemPattern>().Select();\n      }\n{code}\n\nbecomes\n{code}\n      if (filetype != null)\n      {\n        var flType = window.Search(TreeScope.Descendants).WhereAutomationIdIs(\"1136\").Where(AutomationElement.ClassNameProperty, \"ComboBox\").FirstOrDefault();\n        if (flType != null)\n        {\n          flType.Pattern<ExpandCollapsePattern>().Expand();        \n\n          var xmlItem = flType.Search(TreeScope.Descendants).Where(AutomationElement.NameProperty, filetype).FirstOrDefault();\n        }\n        xmlItem.Pattern<SelectionItemPattern>().Select();\n      }\n{code}\n\n=> red code"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337962",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Do not move code out of lambda while applying \"introduce variable\" refactoring"
+            },
+            {
+                "name": "description",
+                "value": "I had the following code:\n{code}\nHighlightFileAndCheck(file, highlighting => HighlightingSettingsManager.Instance.GetSeverity(highlighting, file.ToSourceFile()) == severity, funcCheckErrors, solution);\n{code}\n\nApplied \"introduce variable\" refactoring to \"file.ToSourceFile()\", got this:\n{code}\nvar psiSourceFile = file.ToSourceFile();\nHighlightFileAndCheck(file, highlighting => HighlightingSettingsManager.Instance.GetSeverity(highlighting, psiSourceFile) == severity, funcCheckErrors, solution);\n{code}\n\nAnd because of that I lost read lock on file.ToSourceFile(), as lambda is executed under lock, but outer code is not.\n\n\nIf I had the following lambda instead:\n{code}\nHighlightFileAndCheck(file, highlighting =>\n        {          \n          return HighlightingSettingsManager.Instance.GetSeverity(highlighting, file.ToSourceFile()) == severity;\n        }, funcCheckErrors, solution);\n{code}\n\nthen refactoring worked fine:\n{code}\nHighlightFileAndCheck(file, highlighting =>\n        {\n          var psiSourceFile = file.ToSourceFile();\n          return HighlightingSettingsManager.Instance.GetSeverity(highlighting, psiSourceFile) == severity;\n        }, funcCheckErrors, solution);\n{code}\n\n\nSo, refactoring should properly process lambdas without brackets by adding missing brackets and inserting new variable inside them, and not outside lambda. Otherwise, this leads to bugs."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337995",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Find usages advanced\" finds not all usages in referenced assemblies in 8.0"
+            },
+            {
+                "name": "description",
+                "value": "Try to \"find usages advanced\" of UserControl in Class1.cs of attached solution.\n\nOptions: Find - only \"Derived types\", Scope - \"Solution and libraries\"\n\n7.1.1 finds usages in 3 referenced assemblies\n\n8.0 finds usages only in 1 referenced assembly\n\nThough, usage of UsageControl really exists in System.Web.Mobile."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337999",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Duplicate items in xaml completion after QF \"create resource\""
+            },
+            {
+                "name": "description",
+                "value": "Apply QF \"create resource in parent element <Grid>\", see duplicates in completion list."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "In Progress"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338022",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Run all tests from solution\" from R# menu starts blank session and runs it infinitely if there are no tests at all"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338128",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Ambiguous suggestions for vb.net extension methods"
+            },
+            {
+                "name": "description",
+                "value": "Both in autopopup and basic-completion.\nFour suggestions instead of two."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338406",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Unit test explorer grouping by categories heavily depends on currently opened text control"
+            },
+            {
+                "name": "description",
+                "value": "If open solution where text control with NUnit tests is opened, UTE says that all tests are uncategorized.\nIf I switch control to control with MSTest tests and refresh, UTE says that there is only one categorized test.\nAlso, R# cannot see NUnit category at all in such a case (even no item in gutter icon menu).\n\nIf I now save-reload solution (control with MSTest tests is focused), UTE says that there is only one categorized test.\nIf I switch control to control with NUnit tests and refresh, UTE says that there are two categorized tests.\n\nSomething is wrong in the state of unittesting."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338462",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Two completions (R#'s and VS's) in workflow projects"
+            },
+            {
+                "name": "description",
+                "value": "subj"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338494",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "gotosymbol stopped to show anything in \"find results\" tool window - it does nothing if user click corresponding button"
+            },
+            {
+                "name": "description",
+                "value": "If I click \"Show in Find Results\", it does nothing, only closes search window."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338680",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "visual basic's internal property representation should not be present in second completion"
+            },
+            {
+                "name": "description",
+                "value": "{code:lang=vb}\nClass Family\n  Property Daughters As New List(Of String) From {\"Beth\", \"Diane\"}\n  Property Sons As New List(Of String) From {\"Abe\", \"Carl\"}\n  Public ReadOnly Iterator Property Children As IEnumerable(Of String)\n    Get\n      For Each name As String In Daughter{caret} : Yield name : Next\n      For Each name As String In Sons : Yield name : Next\n    End Get\n  End Property\nEnd Class\nModule Module1\n  Sub Main()\n    Dim x As New Family\n    For Each c As String In x.Children\n      Console.WriteLine(c) ' prints Beth, Diane, Abe, Carl\n    Next\n  End Sub\nEnd Module\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338740",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "In vb.net xmldoc erasing symbol from tag name leads to VS's intellisense suggest appear alongside R#'s"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339014",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Setup and cleanup scripts from testsettings no longer work"
+            },
+            {
+                "name": "description",
+                "value": "Setup & cleanup scripts specified in testsettings do not run if tests are launched via R#.\nThey do run, if via VS's runner."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339057",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Endless disposal of unit tests session when running debug for both mstest and nunit - vs \"is busy\" on solution closing"
+            },
+            {
+                "name": "description",
+                "value": "Steps to reproduce:\n1) open solution from attachment\n2) invoke \"debug unit tests\" for solution in solution explorer\n3) select only NUnitTestProject1 and UnitTestProject1\n4) invoke \"debug\" for them\n5) see that UnitTestProject1 is in pending state endlessly\n6) terminate test execution, close session\n7) try to close solution\n\nVS will be in \"VS is busy\" state, seems that forever."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339058",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "mstest tests terminated while deploying are not really stopped and continue execution"
+            },
+            {
+                "name": "description",
+                "value": "Use solution from attachment.\n\nSpecify in testsettings big file for deployment (I used 1Gb part of vmware disk image).\nSet testsettings file in R#'s options.\n\nRun test TestMethod125, then stop and terminate it.\nYou'll see that:\n1) unit test session will display question marks near tests\n2) mstest executor is still in process and doing something (seems that it continues to run the test)\n3) after mstest executor finishes, unit test session will display green \"passed\" marks near tests, and the string that test outputs will be displayed there in test output\n\nSo, it seems that if test is terminated while it is deploying files, it is not really stopped and continues to run in background."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339087",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Duplicates in vb.net completion"
+            },
+            {
+                "name": "description",
+                "value": "{code:lang=vb}\nPublic Class Class1\n  Public Shared Sub Main\n    Dim s As String = (\"\" + \"\").ch{caret}\n  End Sub\nEnd Class\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Critical"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-329440",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "code cleanup where you ONLY select \"optimise 'using' directives\" also changes names of attribute usages."
+            },
+            {
+                "name": "description",
+                "value": "in version 5,6, and 7 of resharper, optimise usings also changes attribute usage names. It shortens the name (leaves out the \"Attribute\" part). But this is not what I want. I only want to optimise the using part."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336520",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "False conflict on renaming type when type with different number of generic parameters exist"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n  internal class A\n  {\n    private class B // rename to C\n    {\n    }\n\n    private class C<T>\n    {\n    }\n  }\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Open"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336709",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "VB: duplicate items in completion when using namespace type import"
+            },
+            {
+                "name": "description",
+                "value": "{code}\nImports EmbeddedXmlTest.Colors55\n\nPublic Enum Colors55\n  Red\n  Reddy\n  Reddest\n  Green\n  Blue\nEnd Enum\n\nPublic Class Ttt\n  Public Shared A As Integer = 5\nEnd Class\n\nModule M1\n  Sub Main()\n    Dim c As Colors55 = Re{caret}\n  End Sub\nEnd Module\n{code}\n\nCall completion and type \"d\", see duplicated is list."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336718",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Test tracking seems to be non-working for nunit in 8.0"
+            },
+            {
+                "name": "description",
+                "value": "Try with solution from attachment.\n\nTest is not selected in list even after if was already executed.\nThough, after all tests finish, the last test is selected."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336722",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "mstest TestCategory is not recognized by 8.0"
+            },
+            {
+                "name": "description",
+                "value": "No category-specific items in gutter icon menu.\nSolution is attached."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336755",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Change signature dialog does not understand verbatim identifiers"
+            },
+            {
+                "name": "description",
+                "value": "subj"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336766",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Convert LINQ to code\" should not push the code out of lambda expression"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n\n    public void Test() \n    {\n        List<Customer> sfsfsfsfsf = new List<Customer>();\n\n        var cc = (sfsfsfsfsf.Select(ca => new {ca, ca1 = ca})\n            .GroupBy(@t => @t.ca.Country, @t => @t.ca1)).Select(lalalal => \n                new {Country = lalalal.Key, CustCount71 = lalalal.Count()});\n\n        var cc1 = cc.First().CustCount71;\n        var cc2 = cc.Last().Country;\n\n\n    }\n\n    public class Customer\n    {\n        private string name;\n        List<string> phoneNumbers = new List<string>();\n        public string Country { get { return name; } set { name = value; } }\n        public List<string> PhoneNumbers { get { return phoneNumbers; } }\n        public int Count { get; set; }\n    }\n{code}\n\nApply \"Convert LINQ to code\" QF on lalalal.Count().\nIt will transform to erroneous code moving expression out of the lambda where variable is defined:\n{code}\n        foreach (Customer customer in lalalal)\n            count++;\n        var cc = (sfsfsfsfsf.Select(ca => new {ca, ca1 = ca})\n            .GroupBy(@t => @t.ca.Country, @t => @t.ca1)).Select(lalalal => \n                new {Country = lalalal.Key, CustCount71 = count});\n{code}\n\nInstead, it should have converted this as follows:\n{code}\nvar cc = (sfsfsfsfsf.Select(ca => new {ca, ca1 = ca})\n            .GroupBy(@t => @t.ca.Country, @t => @t.ca1)).Select(lalalal =>\n                {\n                    foreach (Customer customer in lalalal)\n                        count++;\n                    return new\n                        {\n                            Country = lalalal.Key,\n                            CustCount71 = count\n                        };\n                });\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336775",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "According to spec, R# should treat set_Property method as reserved even if Property has only getter"
+            },
+            {
+                "name": "description",
+                "value": "R# treats this code as error-free:\n{code}\nclass A\n{\n    public int P {\n\tget { return 123; }\n    }\n\n    public void set_P(int value)\n    {\n    }\n}\n{code}\n\nBut it does not compile.\nError\t1\tType 'A' already reserves a member called 'set_P' with the same parameter types\tC:\\Users\\test\\documents\\visual studio 2012\\Projects\\ClassLibrary1\\ClassLibrary1\\hr.cs\t266\t13\tClassLibrary1\n\nLine 266 is \"public int P\" of class A."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336879",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Auto-completion automatically inserts item in xaml where it is not desirable"
+            },
+            {
+                "name": "description",
+                "value": "1) open MainWindow.xaml\n\n2) on\n{code}\n<TextBlock x:Name=\"Text1\"></TextBlock>\n{code}\n\n3) goto the start of start-tag,\ntype \"iv\"\nsee \"Imagev\"\n\nnon-desirable behaviour, as it does not allow me to simply type what I want\n\nSeems that is was not present in 7.1."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336896",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Transforming static property to method creates non-static backing field and breaks code"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    public static int Ii { get; set; }\n\n    public static int ToInt32(this string s)\n    {\n        Ii = Int32.Parse(s);\n        return Int32.Parse(s);\n    }\n{code}\n\nTransform \"Ii\" to method and see red code."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336897",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Introduce parameter\" may break code"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    public static int Ii { get; set; }\n\n    public static int ToInt32(this string s)\n    {\n        Ii = Int32.Par{caret}se(s);\n        return Int32.Parse(s);\n    }\n{code}\n\nInvoke \"introduce parameter\" and see:\n{code}\n    public static int ToInt32(this string s, int i)\n    {\n        i;\n        return Int32.Parse(s);\n    }\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336929",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "(T<object>) cast is not redundant, removing it changes code semantics"
+            },
+            {
+                "name": "description",
+                "value": "Example:\n{code}\n    public struct Convertible<T>\n    {\n        public static implicit operator Convertible<T>(T value)\n        {\n            return new Convertible<T>();\n        }\n\n        public static explicit operator T(Convertible<T> value)\n        {\n            return default(T);\n        }\n    }\n\n    public class Class1 \n    {\n        public static Convertible<object> C1(object o)\n        {\n            return o;\n        }\n\n        public static Convertible<object> C2(object o)\n        {\n            return (Convertible<object>)o;\n        }\n    }\n{code}\n\nConsider the following test:\n{code}\n        [TestMethod]\n        public void TestMethod12424()\n        {\n            Console.WriteLine(Class1.C1(null));\n            Console.WriteLine(Class1.C2(null));\n        }\n{code}\n\nIf prints the first item and then fails with NullPointerException:\n{code}\nClassLibrary1.Convertible`1[System.Object]\n\nTest method UnitTestProject1.UnitTest1.TestMethod12424 threw exception: \nSystem.NullReferenceException: Object reference not set to an instance of an object.\n{code}\n\nR# suggests that type case to (Convertible<object>) is redundant. But it is now obvious that it is not redundant.\n\nSection \"10.10.3 Conversion operators\" from C# language spec."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336966",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Move to another type\" does not update Razor usages"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n@functions {\n        public const string HelloWorld235 = \"Hello World\";\n}\n{code}\n\nSomewhere in markup:\n{code}\n<p>The value of myMessage is: @HelloWorld235</p>\n{code}\n\nApply \"Move to another type\", select \"HomeController\".\n\nField is moved, but usage is not updated => red code.\n\np.s.: Not sure, where Razor refactorings should go, to Razor, or to Refactorings :)"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-336967",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Split declaration and assignment\" does wrong thing with loop's implicit variable"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n            for (var i = 10; i < 21; i++)\n            {\n                Console.WriteLine(i);\n            }\n{code}\n\ntransforms to:\n{code}\n            var i;\n            for (i = 10; i < 21; i++)\n            {\n                Console.WriteLine(i);\n            }\n{code}\n\n\"var\" should have been replaced by actual type, in our case it is \"int\""
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337145",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "NUnit sequential tests may run not fully if they are started first time"
+            },
+            {
+                "name": "description",
+                "value": "Open attached solution, start tests from context \"public class Class16\" of file SequentialAttribute.cs.\n\nIf you run tests first time, you'll see only one test result.\n\nIf you close UT session and run tests again, you'll see the full list of combinations."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337215",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Removing non-used local variable leads to improper highlighting on statement"
+            },
+            {
+                "name": "description",
+                "value": "Open Class112.cs and do things depicted on screens.\nSee that afterwards the statement is highlighted. Seems strange.\n\nOr you may try at first with this piece of code only:\n{code}\n    class C : IC<int, int, string>\n    {\n        public unsafe int M(int y)\n        {\n\n            int* a;\n            object b = new object();\n            a = null;\n\n            a++;\n\n            return 0;\n\n            \n        }\n\n        public string P { get; set; }\n    }\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337257",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Convert interface to abstract class\" should properly reorder inherited members list"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    public class Class2Base1111 : Class1Base, IClass1\n    {\n    }\n\n    public interface IClass1\n    {\n    }\n\n    public interface Class1Base\n    {\n    }\n{code}\n\nApply \"convert interface to abstract class\" to IClass1.\n\nSee red code, because inherited member list was not reordered, though class should be the first in the list, and all interface names should follow it."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337258",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Convert interface to abstract class\" should not mark abstract inherited method as \"override\", should use \"abstract override\" instead"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    public class Class2Base1111 : IClass1\n    {\n        public override void a()\n        {\n            throw new System.NotImplementedException();\n        }\n    }\n\n    public interface IClass1234\n    {\n        void a();\n    }\n\n    public interface IClass123 : IClass1234\n    {\n    }\n\n    public abstract class IClass1 : IClass123\n    {\n        public abstract void a();\n    }\n{code}\n\n\nApply \"convert interface to abstract class\" to IClass123.\nSee \"public abstract void a();\" auto-implemented and the same member of IClass1 marked \"override\", \"abstract\" dropped, but method lacks implementation => red code.\n\nSeems that \"abstract override\" is legal, so it should be marked in such way instead of \"override\" only."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337347",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "'Create type' XAML quick fix creates uncompilable code in WinRT, because UIElement defined in Windows.winmd has no constructors"
+            },
+            {
+                "name": "description",
+                "value": "Just create WinRT app, type some non-existing object tag, and apply QF 'Create type'.\n\nNew type will be derived from UIElement which is not correct for WinRT.\n\nSee also: http://social.msdn.microsoft.com/Forums/en-US/winappswithcsharp/thread/422af01a-2b48-4815-963b-0b5e21e68260/\n\nQuote: \"It would be better to derive from Control (or others) than the base UIElement. I'll look into this, but that would be my recommendation\". He also confirms the same for Silverlight."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337362",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "'The property \"Text\" cannot be empty' after converting empty-valued Text attribute to nested element"
+            },
+            {
+                "name": "description",
+                "value": "For empty-valued attributes there should be another conversion than simply converting them to empty nested elements.\n\nThis is correct:\n{code}\n<TextBox Margin=\"68,10,113,73\" Text=\"\">\n</TextBox>\n{code}\n\nThis is incorrect, though is exactly the result of corresponding R#'s QF:\n{code}\n<TextBox Margin=\"68,10,113,73\">\n  <TextBox.Text></TextBox.Text>\n</TextBox>\n{code}\n\nTextBox.Text should not be empty-valued, it's value should be empty-string object."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "To be discussed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337365",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "QuickDoc unpin/close buttons work from second/third attempt if several pinned windows are opened"
+            },
+            {
+                "name": "description",
+                "value": "Steps to reproduce:\n1) open three QuickDoc windows, moving each of them after opening - they will be pinned\n2) now try to close or unpin each of the windows - you'll be able to do it only at the second or even the third attempt"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337367",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "If default xaml namespace is renamed, R# shows errors in code, though project compiles and starts fine"
+            },
+            {
+                "name": "description",
+                "value": "Create empty xaml project.\n\nMake\n{code}\nxmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"\n{code}\n\nto be\n{code}\nxmlns:xy=\"http://schemas.microsoft.com/winfx/2006/xaml\"\n{code}\ninstead. Of course, upgrade x:Class attribute to be xy:Class, too.\n\nFrom that point, R# misses understanding that class in code-behind is related to xaml in any way.\n\nSeems that R# should not rely on particular namespace name \"x\", and should rely on namespace URI instead."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Duplicate"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337373",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Move to resource\" refactoring should not be applicable to xaml event handlers (or at least, properly handle this with error message)"
+            },
+            {
+                "name": "description",
+                "value": "Now this refactoring is available and the resx tool throws exception.\nShould either properly process this, or not show this refactoring at all for xaml event handlers."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337391",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Do not suggest to add something to resources if this something is not serializable - this behavior breaks resource editor and forces user to manually edit resources xml"
+            },
+            {
+                "name": "description",
+                "value": "For example, in XAML document I was able to move System.Windows.Media.Color object to resources.\n\nAfter that, VS resource editor cannot be opened normally.\nOnly after removing wrong entry from resource file xml manually, I was able to open resource editor gui.\n\nSeems that R#'s resource tool needs to perform additional check for type to be serializable before adding resource entry."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337393",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Do not suggest to convert \"Name\" to property element syntax"
+            },
+            {
+                "name": "description",
+                "value": "Case A:\n\n{code}\n<Button Name=\"bbb\">\n</Button>\n{code}\n\nAll R# features work fine, project compiles fine, works fine.\n\n\nCase B:\n\n{code}\n<Button>\n  <Button.Name>bbb</Button.Name>\n</Button>\n{code}\n\nR# does not recognize item \"bbb\" at all, project compiles with warning \"Field 'WpfApplication5.MainWindow.bbb' is never assigned to, and will always have its default value null\", starts and fails with NullReferenceException.\n\nIt seems to be a bug or undocumented implementation issue in WPF itself. Maybe it should be reported to ms connect, at least they may update documentation to take this into account.\n\nFrom R#'s side, it will be nice to turn off \"Convert attribute to nested element\" for Name attribute, because it leads to errors."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337483",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "After renaming test method, first test run gives <?> for every variant of parameterized test"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n        [Test]\n        public void ekefe([Values(1, 2, 3)] int a, [Values(1, 5, 10)] int c)\n        {\n            \n        }\n{code}\n\n1) run tests\n2) rename test method\n3) run tests again\n4) see <?>'s for all variants, though test result for method is reported correctly"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Fixed"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-337762",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Test tracking suddenly disables if I traverse unit test session tree while tests are running"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    [TestFixture]\n    public class Class1\n    {\n        [Test]\n        public void Test()\n        {\n            while (true) ;\n        }\n\n        [Test]\n        public void Test2()\n        {\n            \n        }\n    }\n{code}\n\n1) enable test tracking\n2) run tests\n3) move item down in unit test session tree while tests are running\n4) see that button is unchecked\n5) abort session, start again and see that test tracking was really disabled"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Won't fix"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338004",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Creating resource in Binding is impossible"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    <Grid>        \n        <Button>\n            <Button.Content>\n                <Binding>\n                    <Binding.Source>\n                        <StaticResource ResourceKey=\"aaa\" />\n                    </Binding.Source>\n                </Binding>\n            </Button.Content>\n        </Button>\n    </Grid>\n{code}\n\nCalled QF for \"aaa\".\n\nIn QF list, I see \"create resource in parent element <Binding>\". Binding is not descendant of FrameworkElement, so this leads to erroneous markup.\n\nThis QF should be smarter and should find the nearest parent which is FrameworkElement."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338028",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Escape sequences in XAML markup extensions are not always processed correctly"
+            },
+            {
+                "name": "description",
+                "value": "{code}\n    <Grid>\n        <Grid.Resources>\n            <ResourceDictionary>\n                <system:String x:Key=\"a1\">aaa</system:String>\n            </ResourceDictionary>\n        </Grid.Resources>\n        \n        <Button Content=\"{StaticResource &quot;a1&quot;}\">            \n        </Button>\n    </Grid>\n{code}\n\nVS recognizes such sequences and resolves resources.\nR# fails on that."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338074",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "\"Create XAML type\" in vb.net silverlight xaml leads to uncompilable code"
+            },
+            {
+                "name": "description",
+                "value": "Just create vb.net silverlight project, type non-existing tag and use QF \"Create XAML type\".\nResulting code in uncompilable. No such problem in C# silverlight project."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338181",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Intellisense fails to resolve ambiguity of extension methods from different projects within the same namespace but distinct classes"
+            },
+            {
+                "name": "description",
+                "value": "Subj"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338183",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Intellisense fails to resolve ambiguity of extensions methods from different namespaces and classes if namespaces are already imported"
+            },
+            {
+                "name": "description",
+                "value": "Subj"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338464",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "WP8: after specifying DataContext using R#'s suggestion, text is gone from preview"
+            },
+            {
+                "name": "description",
+                "value": "1) create default winphone 8 panorama app\n2) R# says that it cannot resolve item specified in binding\n3) apply R#'s QF to specify context type\n4) in suggestions list, select the only available item (and it seems to be correct)\n5) after applying QF you'll see that headers are gone from preview; if you revert QF - headers will come back\n\nSomething is wrong with binding resolution, though I don't know, what specifically."
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338619",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Static members and fieldnames should not be suggested after \"new\""
+            },
+            {
+                "name": "description",
+                "value": "subj\n\n{code}\nusing System;\nusing System.Collections.Generic;\nusing System.Globalization;\nusing System.Linq;\nusing System.Text;\n\nnamespace ClassLibrary1\n{\n    public class Gen<T1, T2>\n    {\n        public T1 first;\n        public T2 second;\n    }\n\n    public class GGG\n    {\n        \n    }\n\n    public class Class1\n    {\n        public static readonly \n            Gen<Gen<Gen<Gen<Gen<Gen<Gen<int, int>, int>, int>, int>, int>, int>,\n            Gen<int, int>> a = new {caret}\n\n        public static int Main(string[] args)\n        {\n            jj:\n            int i = 123;\n            object o = i;\n            var reflectedType = o.GetType().ReflectedType;\n            if (reflectedType != null)\n            {\n                if (reflectedType.AssemblyQualifiedName != null)\n                {\n                    int j = 0;\n\n                    var s = new GenG\n\n                    var s = new Gen<int, int>\n                        {\n                            first = j.CompareTo(jj).GetHashCode(),\n                            second = Math.Abs(j)\n                        };\n                    \n                    var hashCode = j.GetHashCode().GetHashCode();\n                    var arrayRank = hashCode.GetType().GetArrayRank();\n                    var i1 = arrayRank - reflectedType.Namespace.GetHashCode();\n                }\n            }\n\n            return -1;\n        }\n    }\n}\n\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338678",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Seems that completion should not include the same thing only differing by module name in list"
+            },
+            {
+                "name": "description",
+                "value": "F2 and TestXXX.F2 in list on screenshot are the same thing.\nSeems that one of them should have been filtered out.\n\n{code:lang=vb}\nModule TestXXX\n    WithEvents x As Raiser\n\n    Sub E1Handler() Handles x.E1\n        Console.WriteLine(\"Raised\")\n    End Sub\n\n    ReadOnly Property F2(i As Integer) As Integer\n        Get\n            If i = 0 Then\n                F2 = 1    ' Sets the return value.\n            Else\n                F2 = F2(i - 1) ' Recursive call.\n            End If\n        End Get\n    End Property\n\n\n    Sub Main()\n        x = New Raiser()\n        x.Raise()\n        x.Raise()\n    End Sub\nEnd Module\n{code}"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-338888",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Import completion in WPF XAML inserts invalid namespace name for user control from another project in the same solution"
+            },
+            {
+                "name": "description",
+                "value": "In MainWindow.xaml inside grid:\n1) type \"<usercontrol1\"\n2) invoke import-completion\n3) choose UserControl1 (in WpfControlLibrary1)\n\nR# highlights both tag and namespace name as wrong.\nSolution cannot be built.\n\nIf I remove \".dll\" from namespace name, solution compiles fine.\n\nSeems that assembly file name extension is improper for type from another project in the same solution"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    },
+    {
+        "id": "RSRP-339066",
+        "jiraId": null,
+        "field": [
+            {
+                "name": "summary",
+                "value": "Recent fix for \"navigate to recent edits\" introduced duplicate items without disambiguation in list, and for some types items are still merged"
+            },
+            {
+                "name": "description",
+                "value": "1) duplicate items without disambiguation in list are for: aspx, Web.config\n2) items are still merged for: vb, app.config\n\nfor example, in integration test TestNavigateToRecentEdits we now have the following list:\n{code}\n            \"JQueryUsageExample.aspx\",\n            \"JQueryUsageExample.aspx\",\n            \"TestWithExpression.cs\",\n            \"Test      in TestWithExpression.cs\",\n            \"Web.config\",\n            \"Web.config\",\n            \"app.config\",\n            \"CSSTest.aspx\",\n            \"CSSTest.aspx\",\n            \"hz26Test      in TestClass.vb\",\n            \"GetHumanhz0      in Human.cs\",\n            \"hzName      in Human.cs\"\n{code}\n(will push this test in 5 minutes)"
+            },
+            {
+                "name": "Priority",
+                "value": [
+                    "Major"
+                ]
+            },
+            {
+                "name": "State",
+                "value": [
+                    "Submitted"
+                ]
+            }
+        ],
+        "comment": [],
+        "tag": []
+    }
+]

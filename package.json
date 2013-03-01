@@ -1,23 +1,12 @@
 {
-  "name": "nodejsreporter",
-  "version": "0.1.0",
-  "description": "Simple sample of using Node.js and Handlebars to create a custom YouTrack report, using the YouTrack REST API.",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/danielwertheim/nodejsreporter.git"
-  },
-  "keywords": [
-    "handlebars",
-    "youtrack",
-    "rest",
-    "api"
-  ],
-  "author": "Daniel Wertheim",
-  "license": "MIT",
-  "readmeFilename": "README.md",
-  "gitHead": "a7476639d50c1e663e65e445a1860f189ea1d847"
+    "name": "nodejsreporter",
+    "version": "0.1.0",
+    "description": "Simple sample of using Node.js and Handlebars to create a custom YouTrack report, using the YouTrack REST API.",
+    "author": "Daniel Wertheim",
+    "license": "MIT",
+    "readmeFilename": "README.md",
+    "private": true,
+    "dependencies": {
+        "handlebars": "~1.0.0"
+    }
 }
