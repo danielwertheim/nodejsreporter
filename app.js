@@ -1,7 +1,7 @@
 var config = require('./lib/config'),
 	importer = require('./lib/jsonimporter.fake'),
-	reporter = require('./lib/reporter');
+	writer = require('./lib/reportwriter');
 	
 importer.import(function (json) {
-	reporter.generate(json);
+	writer.write(json);
 });
