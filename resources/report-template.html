@@ -6,6 +6,31 @@
     <link rel="stylesheet" href="report-styling.css" type="text/css" />
 </head>
 <body>
-
+    <article class="report">
+        <header>
+            <h1>Sample report</h1>
+            <time pubdate="{{createdISO}}" class="report-publishdate">Created: {{createdFriendly}}</time>
+        </header>
+        {{#each issues}}
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">{{id}}</span>
+                    <span class="issue-summary">{{summary}}</span>
+                </h2>
+            </header>
+            <pre class="issue-description">{{description}}</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">{{priority}}</li>
+                    <li class="issue-state">{{state}}</li>
+                </ul>
+            </footer>
+        </article>
+        {{/each}}
+        <footer>
+            <time pubdate="{{createdISO}}" class="report-publishdate">Created: {{createdFriendly}}</time>
+        </footer>
+    </article>
 </body>
 </html>

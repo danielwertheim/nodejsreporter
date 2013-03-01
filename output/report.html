@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Report Fri Mar 01 2013 22:18:05 GMT+0100 (W. Europe Standard Time)</title>
+    <title>Report Fri Mar 01 2013 22:45:27 GMT+0100 (W. Europe Standard Time)</title>
     <link rel="stylesheet" href="report-styling.css" type="text/css" />
 </head>
 <body>
     <article class="report">
         <header>
             <h1>Sample report</h1>
-            <time pubdate="2013-03-01T21:18:05.747Z" class="report-publishdate">Fri Mar 01 2013 22:18:05 GMT+0100 (W. Europe Standard Time)</time>
+            <time pubdate="2013-03-01T21:45:27.600Z" class="report-publishdate">Created: Fri Mar 01 2013 22:45:27 GMT+0100 (W. Europe Standard Time)</time>
         </header>
         
         <article class="issue">
@@ -1479,8 +1479,1417 @@ So, refactoring should properly process lambdas without brackets by adding missi
             </footer>
         </article>
         
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337995</span>
+                    <span class="issue-summary">&quot;Find usages advanced&quot; finds not all usages in referenced assemblies in 8.0</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Try to &quot;find usages advanced&quot; of UserControl in Class1.cs of attached solution.
+
+Options: Find - only &quot;Derived types&quot;, Scope - &quot;Solution and libraries&quot;
+
+7.1.1 finds usages in 3 referenced assemblies
+
+8.0 finds usages only in 1 referenced assembly
+
+Though, usage of UsageControl really exists in System.Web.Mobile.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337999</span>
+                    <span class="issue-summary">Duplicate items in xaml completion after QF &quot;create resource&quot;</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Apply QF &quot;create resource in parent element &lt;Grid&gt;&quot;, see duplicates in completion list.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">In Progress</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338022</span>
+                    <span class="issue-summary">&quot;Run all tests from solution&quot; from R# menu starts blank session and runs it infinitely if there are no tests at all</span>
+                </h2>
+            </header>
+            <pre class="issue-description"></pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338128</span>
+                    <span class="issue-summary">Ambiguous suggestions for vb.net extension methods</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Both in autopopup and basic-completion.
+Four suggestions instead of two.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338406</span>
+                    <span class="issue-summary">Unit test explorer grouping by categories heavily depends on currently opened text control</span>
+                </h2>
+            </header>
+            <pre class="issue-description">If open solution where text control with NUnit tests is opened, UTE says that all tests are uncategorized.
+If I switch control to control with MSTest tests and refresh, UTE says that there is only one categorized test.
+Also, R# cannot see NUnit category at all in such a case (even no item in gutter icon menu).
+
+If I now save-reload solution (control with MSTest tests is focused), UTE says that there is only one categorized test.
+If I switch control to control with NUnit tests and refresh, UTE says that there are two categorized tests.
+
+Something is wrong in the state of unittesting.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338462</span>
+                    <span class="issue-summary">Two completions (R#&#x27;s and VS&#x27;s) in workflow projects</span>
+                </h2>
+            </header>
+            <pre class="issue-description">subj</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338494</span>
+                    <span class="issue-summary">gotosymbol stopped to show anything in &quot;find results&quot; tool window - it does nothing if user click corresponding button</span>
+                </h2>
+            </header>
+            <pre class="issue-description">If I click &quot;Show in Find Results&quot;, it does nothing, only closes search window.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Duplicate</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338680</span>
+                    <span class="issue-summary">visual basic&#x27;s internal property representation should not be present in second completion</span>
+                </h2>
+            </header>
+            <pre class="issue-description">{code:lang=vb}
+Class Family
+  Property Daughters As New List(Of String) From {&quot;Beth&quot;, &quot;Diane&quot;}
+  Property Sons As New List(Of String) From {&quot;Abe&quot;, &quot;Carl&quot;}
+  Public ReadOnly Iterator Property Children As IEnumerable(Of String)
+    Get
+      For Each name As String In Daughter{caret} : Yield name : Next
+      For Each name As String In Sons : Yield name : Next
+    End Get
+  End Property
+End Class
+Module Module1
+  Sub Main()
+    Dim x As New Family
+    For Each c As String In x.Children
+      Console.WriteLine(c) &#x27; prints Beth, Diane, Abe, Carl
+    Next
+  End Sub
+End Module
+{code}</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Duplicate</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338740</span>
+                    <span class="issue-summary">In vb.net xmldoc erasing symbol from tag name leads to VS&#x27;s intellisense suggest appear alongside R#&#x27;s</span>
+                </h2>
+            </header>
+            <pre class="issue-description"></pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-339014</span>
+                    <span class="issue-summary">Setup and cleanup scripts from testsettings no longer work</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Setup &amp; cleanup scripts specified in testsettings do not run if tests are launched via R#.
+They do run, if via VS&#x27;s runner.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-339057</span>
+                    <span class="issue-summary">Endless disposal of unit tests session when running debug for both mstest and nunit - vs &quot;is busy&quot; on solution closing</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Steps to reproduce:
+1) open solution from attachment
+2) invoke &quot;debug unit tests&quot; for solution in solution explorer
+3) select only NUnitTestProject1 and UnitTestProject1
+4) invoke &quot;debug&quot; for them
+5) see that UnitTestProject1 is in pending state endlessly
+6) terminate test execution, close session
+7) try to close solution
+
+VS will be in &quot;VS is busy&quot; state, seems that forever.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-339058</span>
+                    <span class="issue-summary">mstest tests terminated while deploying are not really stopped and continue execution</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Use solution from attachment.
+
+Specify in testsettings big file for deployment (I used 1Gb part of vmware disk image).
+Set testsettings file in R#&#x27;s options.
+
+Run test TestMethod125, then stop and terminate it.
+You&#x27;ll see that:
+1) unit test session will display question marks near tests
+2) mstest executor is still in process and doing something (seems that it continues to run the test)
+3) after mstest executor finishes, unit test session will display green &quot;passed&quot; marks near tests, and the string that test outputs will be displayed there in test output
+
+So, it seems that if test is terminated while it is deploying files, it is not really stopped and continues to run in background.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-339087</span>
+                    <span class="issue-summary">Duplicates in vb.net completion</span>
+                </h2>
+            </header>
+            <pre class="issue-description">{code:lang=vb}
+Public Class Class1
+  Public Shared Sub Main
+    Dim s As String = (&quot;&quot; + &quot;&quot;).ch{caret}
+  End Sub
+End Class
+{code}</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Critical</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-329440</span>
+                    <span class="issue-summary">code cleanup where you ONLY select &quot;optimise &#x27;using&#x27; directives&quot; also changes names of attribute usages.</span>
+                </h2>
+            </header>
+            <pre class="issue-description">in version 5,6, and 7 of resharper, optimise usings also changes attribute usage names. It shortens the name (leaves out the &quot;Attribute&quot; part). But this is not what I want. I only want to optimise the using part.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336520</span>
+                    <span class="issue-summary">False conflict on renaming type when type with different number of generic parameters exist</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+  internal class A
+  {
+    private class B // rename to C
+    {
+    }
+
+    private class C&lt;T&gt;
+    {
+    }
+  }
+</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Open</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336709</span>
+                    <span class="issue-summary">VB: duplicate items in completion when using namespace type import</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+Imports EmbeddedXmlTest.Colors55
+
+Public Enum Colors55
+  Red
+  Reddy
+  Reddest
+  Green
+  Blue
+End Enum
+
+Public Class Ttt
+  Public Shared A As Integer = 5
+End Class
+
+Module M1
+  Sub Main()
+    Dim c As Colors55 = Re{caret}
+  End Sub
+End Module
+
+
+Call completion and type &quot;d&quot;, see duplicated is list.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336718</span>
+                    <span class="issue-summary">Test tracking seems to be non-working for nunit in 8.0</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Try with solution from attachment.
+
+Test is not selected in list even after if was already executed.
+Though, after all tests finish, the last test is selected.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336722</span>
+                    <span class="issue-summary">mstest TestCategory is not recognized by 8.0</span>
+                </h2>
+            </header>
+            <pre class="issue-description">No category-specific items in gutter icon menu.
+Solution is attached.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336755</span>
+                    <span class="issue-summary">Change signature dialog does not understand verbatim identifiers</span>
+                </h2>
+            </header>
+            <pre class="issue-description">subj</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Duplicate</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336766</span>
+                    <span class="issue-summary">&quot;Convert LINQ to code&quot; should not push the code out of lambda expression</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+
+    public void Test() 
+    {
+        List&lt;Customer&gt; sfsfsfsfsf = new List&lt;Customer&gt;();
+
+        var cc = (sfsfsfsfsf.Select(ca =&gt; new {ca, ca1 = ca})
+            .GroupBy(@t =&gt; @t.ca.Country, @t =&gt; @t.ca1)).Select(lalalal =&gt; 
+                new {Country = lalalal.Key, CustCount71 = lalalal.Count()});
+
+        var cc1 = cc.First().CustCount71;
+        var cc2 = cc.Last().Country;
+
+
+    }
+
+    public class Customer
+    {
+        private string name;
+        List&lt;string&gt; phoneNumbers = new List&lt;string&gt;();
+        public string Country { get { return name; } set { name = value; } }
+        public List&lt;string&gt; PhoneNumbers { get { return phoneNumbers; } }
+        public int Count { get; set; }
+    }
+
+
+Apply &quot;Convert LINQ to code&quot; QF on lalalal.Count().
+It will transform to erroneous code moving expression out of the lambda where variable is defined:
+
+        foreach (Customer customer in lalalal)
+            count++;
+        var cc = (sfsfsfsfsf.Select(ca =&gt; new {ca, ca1 = ca})
+            .GroupBy(@t =&gt; @t.ca.Country, @t =&gt; @t.ca1)).Select(lalalal =&gt; 
+                new {Country = lalalal.Key, CustCount71 = count});
+
+
+Instead, it should have converted this as follows:
+
+var cc = (sfsfsfsfsf.Select(ca =&gt; new {ca, ca1 = ca})
+            .GroupBy(@t =&gt; @t.ca.Country, @t =&gt; @t.ca1)).Select(lalalal =&gt;
+                {
+                    foreach (Customer customer in lalalal)
+                        count++;
+                    return new
+                        {
+                            Country = lalalal.Key,
+                            CustCount71 = count
+                        };
+                });
+</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336775</span>
+                    <span class="issue-summary">According to spec, R# should treat set_Property method as reserved even if Property has only getter</span>
+                </h2>
+            </header>
+            <pre class="issue-description">R# treats this code as error-free:
+
+class A
+{
+    public int P {
+	get { return 123; }
+    }
+
+    public void set_P(int value)
+    {
+    }
+}
+
+
+But it does not compile.
+Error	1	Type &#x27;A&#x27; already reserves a member called &#x27;set_P&#x27; with the same parameter types	C:\Users\test\documents\visual studio 2012\Projects\ClassLibrary1\ClassLibrary1\hr.cs	266	13	ClassLibrary1
+
+Line 266 is &quot;public int P&quot; of class A.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336879</span>
+                    <span class="issue-summary">Auto-completion automatically inserts item in xaml where it is not desirable</span>
+                </h2>
+            </header>
+            <pre class="issue-description">1) open MainWindow.xaml
+
+2) on
+
+&lt;TextBlock x:Name=&quot;Text1&quot;&gt;&lt;/TextBlock&gt;
+
+
+3) goto the start of start-tag,
+type &quot;iv&quot;
+see &quot;Imagev&quot;
+
+non-desirable behaviour, as it does not allow me to simply type what I want
+
+Seems that is was not present in 7.1.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336896</span>
+                    <span class="issue-summary">Transforming static property to method creates non-static backing field and breaks code</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    public static int Ii { get; set; }
+
+    public static int ToInt32(this string s)
+    {
+        Ii = Int32.Parse(s);
+        return Int32.Parse(s);
+    }
+
+
+Transform &quot;Ii&quot; to method and see red code.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336897</span>
+                    <span class="issue-summary">&quot;Introduce parameter&quot; may break code</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    public static int Ii { get; set; }
+
+    public static int ToInt32(this string s)
+    {
+        Ii = Int32.Par{caret}se(s);
+        return Int32.Parse(s);
+    }
+
+
+Invoke &quot;introduce parameter&quot; and see:
+
+    public static int ToInt32(this string s, int i)
+    {
+        i;
+        return Int32.Parse(s);
+    }
+</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336929</span>
+                    <span class="issue-summary">(T&lt;object&gt;) cast is not redundant, removing it changes code semantics</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Example:
+
+    public struct Convertible&lt;T&gt;
+    {
+        public static implicit operator Convertible&lt;T&gt;(T value)
+        {
+            return new Convertible&lt;T&gt;();
+        }
+
+        public static explicit operator T(Convertible&lt;T&gt; value)
+        {
+            return default(T);
+        }
+    }
+
+    public class Class1 
+    {
+        public static Convertible&lt;object&gt; C1(object o)
+        {
+            return o;
+        }
+
+        public static Convertible&lt;object&gt; C2(object o)
+        {
+            return (Convertible&lt;object&gt;)o;
+        }
+    }
+
+
+Consider the following test:
+
+        [TestMethod]
+        public void TestMethod12424()
+        {
+            Console.WriteLine(Class1.C1(null));
+            Console.WriteLine(Class1.C2(null));
+        }
+
+
+If prints the first item and then fails with NullPointerException:
+
+ClassLibrary1.Convertible&#x60;1[System.Object]
+
+Test method UnitTestProject1.UnitTest1.TestMethod12424 threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+
+
+R# suggests that type case to (Convertible&lt;object&gt;) is redundant. But it is now obvious that it is not redundant.
+
+Section &quot;10.10.3 Conversion operators&quot; from C# language spec.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336966</span>
+                    <span class="issue-summary">&quot;Move to another type&quot; does not update Razor usages</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+@functions {
+        public const string HelloWorld235 = &quot;Hello World&quot;;
+}
+
+
+Somewhere in markup:
+
+&lt;p&gt;The value of myMessage is: @HelloWorld235&lt;/p&gt;
+
+
+Apply &quot;Move to another type&quot;, select &quot;HomeController&quot;.
+
+Field is moved, but usage is not updated =&gt; red code.
+
+p.s.: Not sure, where Razor refactorings should go, to Razor, or to Refactorings :)</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-336967</span>
+                    <span class="issue-summary">&quot;Split declaration and assignment&quot; does wrong thing with loop&#x27;s implicit variable</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+            for (var i = 10; i &lt; 21; i++)
+            {
+                Console.WriteLine(i);
+            }
+
+
+transforms to:
+
+            var i;
+            for (i = 10; i &lt; 21; i++)
+            {
+                Console.WriteLine(i);
+            }
+
+
+&quot;var&quot; should have been replaced by actual type, in our case it is &quot;int&quot;</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337145</span>
+                    <span class="issue-summary">NUnit sequential tests may run not fully if they are started first time</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Open attached solution, start tests from context &quot;public class Class16&quot; of file SequentialAttribute.cs.
+
+If you run tests first time, you&#x27;ll see only one test result.
+
+If you close UT session and run tests again, you&#x27;ll see the full list of combinations.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337215</span>
+                    <span class="issue-summary">Removing non-used local variable leads to improper highlighting on statement</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Open Class112.cs and do things depicted on screens.
+See that afterwards the statement is highlighted. Seems strange.
+
+Or you may try at first with this piece of code only:
+
+    class C : IC&lt;int, int, string&gt;
+    {
+        public unsafe int M(int y)
+        {
+
+            int* a;
+            object b = new object();
+            a = null;
+
+            a++;
+
+            return 0;
+
+            
+        }
+
+        public string P { get; set; }
+    }
+</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337257</span>
+                    <span class="issue-summary">&quot;Convert interface to abstract class&quot; should properly reorder inherited members list</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    public class Class2Base1111 : Class1Base, IClass1
+    {
+    }
+
+    public interface IClass1
+    {
+    }
+
+    public interface Class1Base
+    {
+    }
+
+
+Apply &quot;convert interface to abstract class&quot; to IClass1.
+
+See red code, because inherited member list was not reordered, though class should be the first in the list, and all interface names should follow it.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337258</span>
+                    <span class="issue-summary">&quot;Convert interface to abstract class&quot; should not mark abstract inherited method as &quot;override&quot;, should use &quot;abstract override&quot; instead</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    public class Class2Base1111 : IClass1
+    {
+        public override void a()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    public interface IClass1234
+    {
+        void a();
+    }
+
+    public interface IClass123 : IClass1234
+    {
+    }
+
+    public abstract class IClass1 : IClass123
+    {
+        public abstract void a();
+    }
+
+
+
+Apply &quot;convert interface to abstract class&quot; to IClass123.
+See &quot;public abstract void a();&quot; auto-implemented and the same member of IClass1 marked &quot;override&quot;, &quot;abstract&quot; dropped, but method lacks implementation =&gt; red code.
+
+Seems that &quot;abstract override&quot; is legal, so it should be marked in such way instead of &quot;override&quot; only.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337347</span>
+                    <span class="issue-summary">&#x27;Create type&#x27; XAML quick fix creates uncompilable code in WinRT, because UIElement defined in Windows.winmd has no constructors</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Just create WinRT app, type some non-existing object tag, and apply QF &#x27;Create type&#x27;.
+
+New type will be derived from UIElement which is not correct for WinRT.
+
+See also: http://social.msdn.microsoft.com/Forums/en-US/winappswithcsharp/thread/422af01a-2b48-4815-963b-0b5e21e68260/
+
+Quote: &quot;It would be better to derive from Control (or others) than the base UIElement. I&#x27;ll look into this, but that would be my recommendation&quot;. He also confirms the same for Silverlight.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337362</span>
+                    <span class="issue-summary">&#x27;The property &quot;Text&quot; cannot be empty&#x27; after converting empty-valued Text attribute to nested element</span>
+                </h2>
+            </header>
+            <pre class="issue-description">For empty-valued attributes there should be another conversion than simply converting them to empty nested elements.
+
+This is correct:
+
+&lt;TextBox Margin=&quot;68,10,113,73&quot; Text=&quot;&quot;&gt;
+&lt;/TextBox&gt;
+
+
+This is incorrect, though is exactly the result of corresponding R#&#x27;s QF:
+
+&lt;TextBox Margin=&quot;68,10,113,73&quot;&gt;
+  &lt;TextBox.Text&gt;&lt;/TextBox.Text&gt;
+&lt;/TextBox&gt;
+
+
+TextBox.Text should not be empty-valued, it&#x27;s value should be empty-string object.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">To be discussed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337365</span>
+                    <span class="issue-summary">QuickDoc unpin/close buttons work from second/third attempt if several pinned windows are opened</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Steps to reproduce:
+1) open three QuickDoc windows, moving each of them after opening - they will be pinned
+2) now try to close or unpin each of the windows - you&#x27;ll be able to do it only at the second or even the third attempt</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337367</span>
+                    <span class="issue-summary">If default xaml namespace is renamed, R# shows errors in code, though project compiles and starts fine</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Create empty xaml project.
+
+Make
+
+xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+
+
+to be
+
+xmlns:xy=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+
+instead. Of course, upgrade x:Class attribute to be xy:Class, too.
+
+From that point, R# misses understanding that class in code-behind is related to xaml in any way.
+
+Seems that R# should not rely on particular namespace name &quot;x&quot;, and should rely on namespace URI instead.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Duplicate</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337373</span>
+                    <span class="issue-summary">&quot;Move to resource&quot; refactoring should not be applicable to xaml event handlers (or at least, properly handle this with error message)</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Now this refactoring is available and the resx tool throws exception.
+Should either properly process this, or not show this refactoring at all for xaml event handlers.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337391</span>
+                    <span class="issue-summary">Do not suggest to add something to resources if this something is not serializable - this behavior breaks resource editor and forces user to manually edit resources xml</span>
+                </h2>
+            </header>
+            <pre class="issue-description">For example, in XAML document I was able to move System.Windows.Media.Color object to resources.
+
+After that, VS resource editor cannot be opened normally.
+Only after removing wrong entry from resource file xml manually, I was able to open resource editor gui.
+
+Seems that R#&#x27;s resource tool needs to perform additional check for type to be serializable before adding resource entry.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337393</span>
+                    <span class="issue-summary">Do not suggest to convert &quot;Name&quot; to property element syntax</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Case A:
+
+
+&lt;Button Name=&quot;bbb&quot;&gt;
+&lt;/Button&gt;
+
+
+All R# features work fine, project compiles fine, works fine.
+
+
+Case B:
+
+
+&lt;Button&gt;
+  &lt;Button.Name&gt;bbb&lt;/Button.Name&gt;
+&lt;/Button&gt;
+
+
+R# does not recognize item &quot;bbb&quot; at all, project compiles with warning &quot;Field &#x27;WpfApplication5.MainWindow.bbb&#x27; is never assigned to, and will always have its default value null&quot;, starts and fails with NullReferenceException.
+
+It seems to be a bug or undocumented implementation issue in WPF itself. Maybe it should be reported to ms connect, at least they may update documentation to take this into account.
+
+From R#&#x27;s side, it will be nice to turn off &quot;Convert attribute to nested element&quot; for Name attribute, because it leads to errors.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337483</span>
+                    <span class="issue-summary">After renaming test method, first test run gives &lt;?&gt; for every variant of parameterized test</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+        [Test]
+        public void ekefe([Values(1, 2, 3)] int a, [Values(1, 5, 10)] int c)
+        {
+            
+        }
+
+
+1) run tests
+2) rename test method
+3) run tests again
+4) see &lt;?&gt;&#x27;s for all variants, though test result for method is reported correctly</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Fixed</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-337762</span>
+                    <span class="issue-summary">Test tracking suddenly disables if I traverse unit test session tree while tests are running</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    [TestFixture]
+    public class Class1
+    {
+        [Test]
+        public void Test()
+        {
+            while (true) ;
+        }
+
+        [Test]
+        public void Test2()
+        {
+            
+        }
+    }
+
+
+1) enable test tracking
+2) run tests
+3) move item down in unit test session tree while tests are running
+4) see that button is unchecked
+5) abort session, start again and see that test tracking was really disabled</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Won&#x27;t fix</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338004</span>
+                    <span class="issue-summary">Creating resource in Binding is impossible</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    &lt;Grid&gt;        
+        &lt;Button&gt;
+            &lt;Button.Content&gt;
+                &lt;Binding&gt;
+                    &lt;Binding.Source&gt;
+                        &lt;StaticResource ResourceKey=&quot;aaa&quot; /&gt;
+                    &lt;/Binding.Source&gt;
+                &lt;/Binding&gt;
+            &lt;/Button.Content&gt;
+        &lt;/Button&gt;
+    &lt;/Grid&gt;
+
+
+Called QF for &quot;aaa&quot;.
+
+In QF list, I see &quot;create resource in parent element &lt;Binding&gt;&quot;. Binding is not descendant of FrameworkElement, so this leads to erroneous markup.
+
+This QF should be smarter and should find the nearest parent which is FrameworkElement.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338028</span>
+                    <span class="issue-summary">Escape sequences in XAML markup extensions are not always processed correctly</span>
+                </h2>
+            </header>
+            <pre class="issue-description">
+    &lt;Grid&gt;
+        &lt;Grid.Resources&gt;
+            &lt;ResourceDictionary&gt;
+                &lt;system:String x:Key=&quot;a1&quot;&gt;aaa&lt;/system:String&gt;
+            &lt;/ResourceDictionary&gt;
+        &lt;/Grid.Resources&gt;
+        
+        &lt;Button Content=&quot;{StaticResource &amp;quot;a1&amp;quot;}&quot;&gt;            
+        &lt;/Button&gt;
+    &lt;/Grid&gt;
+
+
+VS recognizes such sequences and resolves resources.
+R# fails on that.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338074</span>
+                    <span class="issue-summary">&quot;Create XAML type&quot; in vb.net silverlight xaml leads to uncompilable code</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Just create vb.net silverlight project, type non-existing tag and use QF &quot;Create XAML type&quot;.
+Resulting code in uncompilable. No such problem in C# silverlight project.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338181</span>
+                    <span class="issue-summary">Intellisense fails to resolve ambiguity of extension methods from different projects within the same namespace but distinct classes</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Subj</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338183</span>
+                    <span class="issue-summary">Intellisense fails to resolve ambiguity of extensions methods from different namespaces and classes if namespaces are already imported</span>
+                </h2>
+            </header>
+            <pre class="issue-description">Subj</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338464</span>
+                    <span class="issue-summary">WP8: after specifying DataContext using R#&#x27;s suggestion, text is gone from preview</span>
+                </h2>
+            </header>
+            <pre class="issue-description">1) create default winphone 8 panorama app
+2) R# says that it cannot resolve item specified in binding
+3) apply R#&#x27;s QF to specify context type
+4) in suggestions list, select the only available item (and it seems to be correct)
+5) after applying QF you&#x27;ll see that headers are gone from preview; if you revert QF - headers will come back
+
+Something is wrong with binding resolution, though I don&#x27;t know, what specifically.</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338619</span>
+                    <span class="issue-summary">Static members and fieldnames should not be suggested after &quot;new&quot;</span>
+                </h2>
+            </header>
+            <pre class="issue-description">subj
+
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+
+namespace ClassLibrary1
+{
+    public class Gen&lt;T1, T2&gt;
+    {
+        public T1 first;
+        public T2 second;
+    }
+
+    public class GGG
+    {
+        
+    }
+
+    public class Class1
+    {
+        public static readonly 
+            Gen&lt;Gen&lt;Gen&lt;Gen&lt;Gen&lt;Gen&lt;Gen&lt;int, int&gt;, int&gt;, int&gt;, int&gt;, int&gt;, int&gt;,
+            Gen&lt;int, int&gt;&gt; a = new {caret}
+
+        public static int Main(string[] args)
+        {
+            jj:
+            int i = 123;
+            object o = i;
+            var reflectedType = o.GetType().ReflectedType;
+            if (reflectedType != null)
+            {
+                if (reflectedType.AssemblyQualifiedName != null)
+                {
+                    int j = 0;
+
+                    var s = new GenG
+
+                    var s = new Gen&lt;int, int&gt;
+                        {
+                            first = j.CompareTo(jj).GetHashCode(),
+                            second = Math.Abs(j)
+                        };
+                    
+                    var hashCode = j.GetHashCode().GetHashCode();
+                    var arrayRank = hashCode.GetType().GetArrayRank();
+                    var i1 = arrayRank - reflectedType.Namespace.GetHashCode();
+                }
+            }
+
+            return -1;
+        }
+    }
+}
+
+</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338678</span>
+                    <span class="issue-summary">Seems that completion should not include the same thing only differing by module name in list</span>
+                </h2>
+            </header>
+            <pre class="issue-description">F2 and TestXXX.F2 in list on screenshot are the same thing.
+Seems that one of them should have been filtered out.
+
+{code:lang=vb}
+Module TestXXX
+    WithEvents x As Raiser
+
+    Sub E1Handler() Handles x.E1
+        Console.WriteLine(&quot;Raised&quot;)
+    End Sub
+
+    ReadOnly Property F2(i As Integer) As Integer
+        Get
+            If i = 0 Then
+                F2 = 1    &#x27; Sets the return value.
+            Else
+                F2 = F2(i - 1) &#x27; Recursive call.
+            End If
+        End Get
+    End Property
+
+
+    Sub Main()
+        x = New Raiser()
+        x.Raise()
+        x.Raise()
+    End Sub
+End Module
+{code}</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-338888</span>
+                    <span class="issue-summary">Import completion in WPF XAML inserts invalid namespace name for user control from another project in the same solution</span>
+                </h2>
+            </header>
+            <pre class="issue-description">In MainWindow.xaml inside grid:
+1) type &quot;&lt;usercontrol1&quot;
+2) invoke import-completion
+3) choose UserControl1 (in WpfControlLibrary1)
+
+R# highlights both tag and namespace name as wrong.
+Solution cannot be built.
+
+If I remove &quot;.dll&quot; from namespace name, solution compiles fine.
+
+Seems that assembly file name extension is improper for type from another project in the same solution</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
+        <article class="issue">
+            <header>
+                <h2>
+                    <span class="issue-id">RSRP-339066</span>
+                    <span class="issue-summary">Recent fix for &quot;navigate to recent edits&quot; introduced duplicate items without disambiguation in list, and for some types items are still merged</span>
+                </h2>
+            </header>
+            <pre class="issue-description">1) duplicate items without disambiguation in list are for: aspx, Web.config
+2) items are still merged for: vb, app.config
+
+for example, in integration test TestNavigateToRecentEdits we now have the following list:
+
+            &quot;JQueryUsageExample.aspx&quot;,
+            &quot;JQueryUsageExample.aspx&quot;,
+            &quot;TestWithExpression.cs&quot;,
+            &quot;Test      in TestWithExpression.cs&quot;,
+            &quot;Web.config&quot;,
+            &quot;Web.config&quot;,
+            &quot;app.config&quot;,
+            &quot;CSSTest.aspx&quot;,
+            &quot;CSSTest.aspx&quot;,
+            &quot;hz26Test      in TestClass.vb&quot;,
+            &quot;GetHumanhz0      in Human.cs&quot;,
+            &quot;hzName      in Human.cs&quot;
+
+(will push this test in 5 minutes)</pre>
+            <footer>
+                <ul>
+                    <li class="issue-priority">Major</li>
+                    <li class="issue-state">Submitted</li>
+                </ul>
+            </footer>
+        </article>
+        
         <footer>
-            <time pubdate="2013-03-01T21:18:05.747Z" class="report-publishdate">Fri Mar 01 2013 22:18:05 GMT+0100 (W. Europe Standard Time)</time>
+            <time pubdate="2013-03-01T21:45:27.600Z" class="report-publishdate">Created: Fri Mar 01 2013 22:45:27 GMT+0100 (W. Europe Standard Time)</time>
         </footer>
     </article>
 </body>

@@ -1,6 +1,42 @@
-.report {}
+html, body, * {
+    margin: 0;
+    padding: 0;
+}
+.report {
+    clear: both;
+}
+.report > header,
+.report > footer {
+    padding: 2em 0;
+}
+.report > header > h1 {
+    float: left;
+    font-size: 2em;
+}
+.report > header > .report-publishdate,
+.report > footer > .report-publishdate {
+    float: right;
+}
 .report-publishdate {}
-.issue {}
+.issue {
+    clear: both;
+    margin: 2em 0;
+}
 .issue-id {}
 .issue-summary {}
-.issue-description {}
+.issue-description {
+    margin: 0.8em 0;
+    padding: 0.5em;
+    background-color: #f5f5f5;
+}
+.issue-priority {}
+.issue-state {}
+.issue > footer > ul {
+    list-style-type: none;
+}
+.issue > footer > ul > li {
+    display: inline-block;
+    padding: 0.5em;
+    min-width: 3em;
+    background-color: #e5e5e5;
+}
